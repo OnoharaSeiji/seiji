@@ -1,25 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cronograma de Estudos · Seiji</title>
-  <meta name="description" content="Cronograma de estudos de 12 semanas para Meta Ads, Google Ads, Traqueamento, n8n, CRM, prospecção ativa, vendas, inglês e japonês.">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta name="description" content="Cronograma de estudos de Onohara Seiji com progresso, semanas e links diretos para as apostilas." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div class="container">
-      <a class="brand" href="index.html">
-        <span class="brand-badge">S</span>
-        <span>seiji.study</span>
-      </a>
-      <nav class="nav-links" aria-label="navegação principal">
-        <a class="nav-link active" href="index.html">Cronograma</a>
-        <a class="nav-link" href="#metodologia">Metodologia</a>
-        <a class="nav-link" href="#semanas">Semanas</a>
-        <a class="nav-link" href="#progresso">Progresso</a>
+  <header class="site-header">
+    <div class="container nav-row">
+      <a class="brand" href="index.html">seiji.study</a>
+      <nav class="site-nav">
+        <a href="#cronograma">Cronograma</a>
+        <a href="#metodologia">Metodologia</a>
+        <a href="#progresso">Progresso</a>
       </nav>
     </div>
   </header>
@@ -27,58 +25,42 @@
   <main>
     <section class="hero">
       <div class="container hero-grid">
-        <article class="card hero-card">
-          <span class="eyebrow">Projeto de estudo · 12 semanas · GitHub Pages</span>
+        <div>
+          <p class="eyebrow">Projeto de estudo · 12 semanas · GitHub Pages</p>
           <h1>Cronograma de estudos para Onohara Seiji</h1>
-          <p class="lead">
+          <p class="hero-text">
             Plano estruturado para 60 a 90 minutos por dia, com conteúdo novo de segunda a quinta,
             revisão na sexta e teste prático no sábado. O foco central está em Meta Ads, Google Ads,
             traqueamento, n8n, CRM, prospecção ativa, vendas, inglês e japonês.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#semanas">Ver cronograma completo</a>
-            <a class="btn btn-secondary" href="apostilas/semana-01-dia-01.html">Abrir a primeira apostila</a>
+            <a class="btn btn-primary" href="#cronograma">Ver cronograma completo</a>
+            <a class="btn btn-secondary" href="apostilas/dia-001.html">Abrir a primeira apostila</a>
           </div>
-        </article>
+        </div>
 
         <aside class="card profile-card">
-          <div class="eyebrow">Perfil do plano</div>
-          <div class="profile-grid">
-            <div class="info-pill">
-              <small>Nome</small>
-              <strong>Onohara Seiji</strong>
-            </div>
-            <div class="info-pill">
-              <small>Idade</small>
-              <strong>39 anos</strong>
-            </div>
-            <div class="info-pill">
-              <small>Profissão</small>
-              <strong>Gestor de tráfego pago</strong>
-            </div>
-            <div class="info-pill">
-              <small>Rotina</small>
-              <strong>Seg a sáb</strong>
-            </div>
-            <div class="info-pill">
-              <small>Bloco diário</small>
-              <strong>60 a 90 min</strong>
-            </div>
-            <div class="info-pill">
-              <small>Idiomas</small>
-              <strong>Inglês + japonês</strong>
-            </div>
-          </div>
+          <h2>Perfil do plano</h2>
+          <ul class="profile-list">
+            <li><strong>Nome</strong><span>Onohara Seiji</span></li>
+            <li><strong>Idade</strong><span>39 anos</span></li>
+            <li><strong>Profissão</strong><span>Gestor de tráfego pago</span></li>
+            <li><strong>Rotina</strong><span>Seg a sáb</span></li>
+            <li><strong>Bloco diário</strong><span>60 a 90 min</span></li>
+            <li><strong>Idiomas</strong><span>Inglês + japonês</span></li>
+          </ul>
         </aside>
       </div>
     </section>
 
-    <section class="section" id="metodologia">
+    <section id="metodologia" class="section">
       <div class="container">
         <div class="section-head">
           <div>
             <h2>Metodologia das apostilas</h2>
-            <p class="section-lead">Cada apostila foi organizada para priorizar retenção, recuperação ativa, aplicação prática e revisão contínua.</p>
+            <p class="section-lead">
+              Cada apostila deve priorizar retenção, recuperação ativa, aplicação prática e revisão contínua.
+            </p>
           </div>
         </div>
 
@@ -103,7 +85,7 @@
       </div>
     </section>
 
-    <section class="section" id="progresso">
+    <section id="progresso" class="section alt-section">
       <div class="container">
         <div class="section-head">
           <div>
@@ -115,7 +97,7 @@
       </div>
     </section>
 
-    <section class="section" id="semanas">
+    <section id="cronograma" class="section">
       <div class="container">
         <div class="section-head">
           <div>
@@ -142,20 +124,21 @@
           </article>
           <article class="card resource-card">
             <h3>Como expandir</h3>
-            <p>Você pode editar o arquivo <code>assets/js/study-data.js</code> para alterar temas, títulos e exercícios sem mexer no layout.</p>
+            <p>Crie ou substitua apenas os arquivos das apostilas dentro de <code>apostilas/</code>, mantendo o padrão <code>dia-001.html</code>, <code>dia-002.html</code> e assim por diante.</p>
           </article>
           <article class="card resource-card">
             <h3>Próximo passo recomendado</h3>
-            <p>Depois de publicar a estrutura, a etapa ideal é começar a preencher a apostila 1 com conteúdo mais profundo e visual.</p>
+            <p>Preencher as apostilas uma a uma com conteúdo profundo, exemplos, exercícios e prática aplicada.</p>
           </article>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      Projeto de estudo de Seiji · Estrutura pronta para GitHub Pages
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p>Projeto de estudo de Seiji · Estrutura pronta para GitHub Pages</p>
+      <a href="apostilas/dia-001.html">Abrir a primeira apostila</a>
     </div>
   </footer>
 
