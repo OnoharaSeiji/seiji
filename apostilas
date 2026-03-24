@@ -1,1 +1,39 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apostila · Seiji</title>
+  <meta name="description" content="Apostila diária do cronograma de estudos de Seiji.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="../index.html">
+        <span class="brand-badge">S</span>
+        <span>seiji.study</span>
+      </a>
+      <nav class="nav-links" aria-label="navegação principal">
+        <a class="nav-link" href="../index.html">Cronograma</a>
+        <a class="nav-link active" href="#">Apostila</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="lesson-shell">
+    <div class="container" id="lesson-mount"></div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      Apostila diária · retorno ao cronograma e avanço para a próxima aula no rodapé
+    </div>
+  </footer>
+
+  <script src="../assets/js/study-data.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
+
