@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Semana 1 · Dia 1 · Meta Ads: estrutura de campanha, funil e públicos</title>
+  <meta name="description" content="Apostila 1 aprofundada: estrutura de campanha, funil e públicos no Meta Ads.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .lesson-pro{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:20px}
+    .hero-pro{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin-top:18px}
+    .hero-box,.mini-box,.map-card,.practice-card,.check-card,.ref-card,.qa-card,.truth-card,.timeline-card,.exercise-card,.glossary-card,.insight-card{padding:20px;border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,.035)}
+    .hero-box h2,.map-card h3,.practice-card h3,.check-card h3,.exercise-card h3,.glossary-card h3,.ref-card h3,.timeline-card h3,.insight-card h3,.qa-card h3,.truth-card h3{margin:0 0 10px}
+    .hero-box p,.mini-box p,.map-card p,.practice-card p,.check-card p,.exercise-card p,.glossary-card p,.ref-card p,.timeline-card p,.insight-card p,.qa-card p,.truth-card p{margin:0;color:var(--muted);line-height:1.75}
+    .hero-box ul,.map-card ul,.practice-card ul,.check-card ul,.exercise-card ul,.glossary-card ul,.qa-card ul,.truth-card ul,.ref-card ul,.timeline-card ul,.insight-card ul{margin:14px 0 0 18px;padding:0}
+    .hero-box li,.map-card li,.practice-card li,.check-card li,.exercise-card li,.glossary-card li,.qa-card li,.truth-card li,.ref-card li,.timeline-card li,.insight-card li{margin:8px 0;line-height:1.7}
+    .eyeline{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 0}
+    .pill{padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--muted);font-size:.9rem}
+    .mini-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .mini-box strong{display:block;font-size:1rem;margin-bottom:8px}
+    .section-stack{display:grid;gap:16px;margin-top:20px}
+    .section-label{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--muted);font-size:.86rem;text-transform:uppercase;letter-spacing:.07em}
+    .pro-section{padding:24px;border-radius:24px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+    .pro-section h2{margin:0 0 12px;font-size:1.35rem;letter-spacing:-.03em}
+    .pro-section p{margin:0;color:var(--muted);line-height:1.8}
+    .pro-section p + p{margin-top:12px}
+    .two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .three-col{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .diagram-card{padding:22px;border-radius:22px;background:linear-gradient(180deg,rgba(96,165,250,.12),rgba(110,231,183,.08));border:1px solid rgba(110,231,183,.18);margin-top:16px}
+    .diagram-title{font-size:1rem;margin:0 0 14px;color:#dff8ff}
+    .svg-wrap{padding:16px;border-radius:18px;background:rgba(7,16,30,.55);border:1px solid var(--line)}
+    .call-grid{display:grid;gap:14px;margin-top:16px}
+    .call-card{padding:16px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.035)}
+    .call-card strong{display:block;margin-bottom:8px}
+    .truth-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+    .truth-card{background:rgba(255,255,255,.028)}
+    .truth-card.bad{border-color:rgba(251,113,133,.18)}
+    .truth-card.good{border-color:rgba(110,231,183,.18)}
+    .framework{display:grid;gap:12px;margin-top:16px}
+    .framework-step{display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:start;padding:16px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.035)}
+    .step-n{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;font-weight:800;background:linear-gradient(135deg,var(--accent-2),var(--accent));color:#04111f}
+    .note-strong{margin-top:14px;padding:16px;border-radius:18px;border:1px solid rgba(251,191,36,.2);background:rgba(251,191,36,.08);color:#ffefbf}
+    .exercise-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin-top:16px}
+    .board{margin-top:16px;border:1px dashed rgba(255,255,255,.18);border-radius:20px;padding:18px;background:rgba(255,255,255,.02)}
+    .board h3{margin:0 0 10px}
+    .board p{margin:0;color:var(--muted)}
+    .board-lines{display:grid;gap:10px;margin-top:14px}
+    .board-line{height:14px;border-radius:999px;background:rgba(255,255,255,.06)}
+    .quiz-list{display:grid;gap:14px;margin-top:16px}
+    .quiz-item{padding:18px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+    .quiz-item strong{display:block;margin-bottom:8px}
+    details.answer{margin-top:12px;border-top:1px solid var(--line);padding-top:12px}
+    details.answer summary{cursor:pointer;font-weight:700;color:#dff8ff}
+    .lang-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+    .micro-card{padding:18px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+    .micro-card h3{margin:0 0 10px}
+    .micro-card p{margin:0;color:var(--muted);line-height:1.75}
+    .micro-card ul{margin:12px 0 0 18px;padding:0}
+    .micro-card li{margin:8px 0;line-height:1.7}
+    .aside-card .status-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+    .aside-mini{padding:14px;border-radius:16px;background:rgba(255,255,255,.035);border:1px solid var(--line)}
+    .aside-mini strong{display:block;margin-bottom:6px}
+    .aside-check{display:grid;gap:10px;margin-top:16px}
+    .aside-check label{display:flex;gap:10px;align-items:flex-start;color:var(--muted);line-height:1.5}
+    .quote-box{margin-top:16px;padding:16px 18px;border-left:4px solid var(--accent);border-radius:16px;background:rgba(110,231,183,.08);color:#e5fff7}
+    .reference-list{display:grid;gap:12px;margin-top:16px}
+    .reference-list a{display:block;padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text)}
+    .reference-list small{display:block;color:var(--muted);margin-top:6px;line-height:1.6}
+    .mark-box{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.04);margin-top:18px}
+    .mark-box p{margin:6px 0 0;color:var(--muted)}
+    .action-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+    .small-muted{font-size:.94rem;color:var(--muted)}
+    .applied-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px}
+    .applied-box{padding:14px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+    .applied-box strong{display:block;margin-bottom:8px}
+    @media (max-width: 1020px){
+      .lesson-pro,.hero-pro,.exercise-grid,.truth-grid,.lang-grid,.two-col,.three-col,.mini-grid,.applied-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="../index.html">
+        <span class="brand-badge">S</span>
+        <span>seiji.study</span>
+      </a>
+      <nav class="nav-links" aria-label="navegação principal">
+        <a class="nav-link" href="../index.html">Cronograma</a>
+        <a class="nav-link active" href="#">Apostila 1.1</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="lesson-shell">
+    <div class="container">
+      <div class="lesson-pro">
+        <article class="card lesson-card">
+          <div class="lesson-breadcrumb">
+            <a href="../index.html">Cronograma</a>
+            <span>•</span>
+            <span>Semana 1</span>
+            <span>•</span>
+            <span>Dia 1</span>
+          </div>
+
+          <div class="eyebrow">Apostila · Segunda · Meta Ads</div>
+          <h1 class="lesson-title">Estrutura de campanha, funil e públicos</h1>
+          <p class="lesson-subtitle">Nesta aula, você vai construir uma base estratégica para não montar campanhas “por costume”. O objetivo é entender como a arquitetura da conta influencia clareza, leitura de dados e capacidade real de otimização.</p>
+
+          <section class="hero-pro">
+            <div class="hero-box">
+              <span class="section-label">Resultado esperado</span>
+              <h2>No fim desta aula, você precisa conseguir fazer três coisas</h2>
+              <ul>
+                <li><strong>Explicar</strong> sem consultar a diferença entre campanha, conjunto e anúncio.</li>
+                <li><strong>Desenhar</strong> uma estrutura de funil para e-commerce sem misturar aquisição, remarketing e recorrência.</li>
+                <li><strong>Escolher</strong> públicos de forma racional, evitando sobreposição sem propósito.</li>
+              </ul>
+              <div class="eyeline">
+                <span class="pill">Tempo ideal: 75 a 90 min</span>
+                <span class="pill">Saída prática: 1 estrutura pronta</span>
+                <span class="pill">Método: recuperação + exemplo + prática</span>
+              </div>
+            </div>
+            <div class="mini-grid">
+              <div class="mini-box">
+                <strong>Erro comum</strong>
+                <p>Criar várias campanhas e conjuntos sem uma hipótese clara, só porque “parece organizado”.</p>
+              </div>
+              <div class="mini-box">
+                <strong>Critério de domínio</strong>
+                <p>Conseguir justificar cada separação de campanha e cada público em voz alta, sem se enrolar.</p>
+              </div>
+              <div class="mini-box">
+                <strong>Aplicação imediata</strong>
+                <p>Você pode usar esta lógica ainda hoje em clientes de moda, decoração, leads ou recompra.</p>
+              </div>
+              <div class="mini-box">
+                <strong>Regra da aula</strong>
+                <p>Não leia passivamente. Pare, responda, desenhe, compare e corrija.</p>
+              </div>
+            </div>
+          </section>
+
+          <div class="section-stack">
+            <section class="pro-section">
+              <span class="section-label">1. Aquecimento com recuperação ativa</span>
+              <h2>Comece sem consultar nada</h2>
+              <p>Como esta é a primeira apostila, você ainda não tem uma aula anterior para revisar. Então o aquecimento aqui serve para duas coisas: ativar o que você já sabe e revelar suas lacunas antes do estudo. Responda primeiro de cabeça. Só depois avance.</p>
+              <div class="quiz-list">
+                <div class="quiz-item">
+                  <strong>Pergunta 1</strong>
+                  <p>Qual é, na sua linguagem, a diferença entre campanha, conjunto e anúncio?</p>
+                </div>
+                <div class="quiz-item">
+                  <strong>Pergunta 2</strong>
+                  <p>Por que misturar prospecção e remarketing na mesma estrutura costuma atrapalhar a análise?</p>
+                </div>
+                <div class="quiz-item">
+                  <strong>Pergunta 3</strong>
+                  <p>Que tipos de públicos você já usa hoje e por que os usa?</p>
+                </div>
+                <div class="quiz-item">
+                  <strong>Pergunta 4</strong>
+                  <p>Quando simplificar a conta ajuda mais do que criar novas divisões?</p>
+                </div>
+              </div>
+              <div class="quote-box">Meta da etapa: transformar sensação de “eu acho que sei” em visão concreta do que você realmente domina e do que ainda está confuso.</div>
+            </section>
+
+            <section class="pro-section">
+              <span class="section-label">2. Modelo mental</span>
+              <h2>Entenda a hierarquia antes de pensar em otimização</h2>
+              <p>No Meta Ads, a campanha é a camada da intenção macro; o conjunto de anúncios é a camada da entrega; o anúncio é a camada da mensagem. Quando você confunde essas camadas, a conta vira um amontoado de decisões soltas.</p>
+              <p>Uma forma simples de fixar isso é pensar assim: <strong>a campanha decide “para qual objetivo de negócio eu vou empurrar orçamento”</strong>; <strong>o conjunto decide “para quem, quando e com qual lógica de entrega”</strong>; <strong>o anúncio decide “o que a pessoa vai ver e por que deveria agir”</strong>.</p>
+
+              <div class="diagram-card">
+                <p class="diagram-title">Mapa visual da hierarquia</p>
+                <div class="svg-wrap">
+                  <svg viewBox="0 0 880 340" width="100%" height="100%" role="img" aria-label="Diagrama da hierarquia de Meta Ads">
+                    <defs>
+                      <linearGradient id="g1" x1="0" x2="1">
+                        <stop offset="0%" stop-color="#60a5fa" />
+                        <stop offset="100%" stop-color="#6ee7b7" />
+                      </linearGradient>
+                    </defs>
+                    <rect x="20" y="20" width="840" height="300" rx="28" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" />
+                    <rect x="60" y="55" width="760" height="60" rx="20" fill="url(#g1)" opacity="0.95" />
+                    <text x="90" y="93" fill="#04111f" font-size="28" font-weight="700">Campanha</text>
+                    <text x="320" y="93" fill="#04111f" font-size="20">Objetivo de negócio</text>
+
+                    <rect x="90" y="150" width="300" height="90" rx="20" fill="rgba(96,165,250,0.16)" stroke="rgba(96,165,250,0.35)" />
+                    <text x="120" y="188" fill="#dff8ff" font-size="24" font-weight="700">Conjunto A</text>
+                    <text x="120" y="218" fill="#cfe1ff" font-size="18">Público · verba · janela · posicionamento</text>
+
+                    <rect x="490" y="150" width="300" height="90" rx="20" fill="rgba(110,231,183,0.14)" stroke="rgba(110,231,183,0.35)" />
+                    <text x="520" y="188" fill="#e9fff7" font-size="24" font-weight="700">Conjunto B</text>
+                    <text x="520" y="218" fill="#dcfff4" font-size="18">Outra hipótese de entrega</text>
+
+                    <rect x="90" y="265" width="140" height="34" rx="12" fill="rgba(255,255,255,0.08)" />
+                    <text x="116" y="287" fill="#eef2ff" font-size="16">Anúncio 1</text>
+                    <rect x="240" y="265" width="140" height="34" rx="12" fill="rgba(255,255,255,0.08)" />
+                    <text x="266" y="287" fill="#eef2ff" font-size="16">Anúncio 2</text>
+                    <rect x="490" y="265" width="140" height="34" rx="12" fill="rgba(255,255,255,0.08)" />
+                    <text x="516" y="287" fill="#eef2ff" font-size="16">Anúncio 3</text>
+                    <rect x="640" y="265" width="140" height="34" rx="12" fill="rgba(255,255,255,0.08)" />
+                    <text x="666" y="287" fill="#eef2ff" font-size="16">Anúncio 4</text>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="three-col" style="margin-top:16px">
+                <div class="map-card">
+                  <h3>Campanha</h3>
+                  <p>É o contêiner do objetivo. Aqui você está dizendo à plataforma qual resultado principal quer perseguir.</p>
+                  <ul>
+                    <li>Vendas</li>
+                    <li>Leads</li>
+                    <li>Tráfego</li>
+                    <li>Engajamento</li>
+                  </ul>
+                </div>
+                <div class="map-card">
+                  <h3>Conjunto de anúncios</h3>
+                  <p>É onde mora a hipótese de entrega. Se você separa conjuntos, precisa existir uma razão observável para essa separação.</p>
+                  <ul>
+                    <li>Público</li>
+                    <li>Geografia</li>
+                    <li>Janela de remarketing</li>
+                    <li>Budget e agenda</li>
+                  </ul>
+                </div>
+                <div class="map-card">
+                  <h3>Anúncio</h3>
+                  <p>É a peça que confronta o usuário. Criativo, copy, formato, ângulo e promessa vivem aqui.</p>
+                  <ul>
+                    <li>Imagem ou vídeo</li>
+                    <li>Headline</li>
+                    <li>Texto principal</li>
+                    <li>CTA</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="note-strong"><strong>Regra útil:</strong> quando uma decisão não muda público, verba, agenda ou entrega, talvez ela não deva criar um novo conjunto. E quando uma decisão não muda o objetivo, talvez ela não deva criar uma nova campanha.</div>
+            </section>
+
+            <section class="pro-section">
+              <span class="section-label">3. Funil</span>
+              <h2>Funil não é enfeite. É separação de contexto.</h2>
+              <p>Muita gente fala em topo, meio e fundo como se fosse só nomenclatura. Não é. O funil serve para separar pessoas em estados mentais diferentes. Quem nunca viu sua marca não deve receber a mesma pressão, a mesma prova e a mesma oferta de quem abandonou carrinho ontem.</p>
+              <p>Na prática, você pode pensar em quatro blocos:</p>
+              <div class="applied-grid">
+                <div class="applied-box">
+                  <strong>Topo</strong>
+                  <p>Descoberta e primeira exposição. Público frio, mensagem mais ampla e criativo que chama atenção.</p>
+                </div>
+                <div class="applied-box">
+                  <strong>Meio</strong>
+                  <p>Consideração. Pessoas que já interagiram e precisam de contexto, prova ou aprofundamento.</p>
+                </div>
+                <div class="applied-box">
+                  <strong>Fundo</strong>
+                  <p>Decisão. Visitou produto, adicionou ao carrinho, voltou ao site, mas não comprou.</p>
+                </div>
+                <div class="applied-box">
+                  <strong>Recorrência</strong>
+                  <p>Recompra e aumento de valor. Cliente atual não é público frio disfarçado.</p>
+                </div>
+              </div>
+
+              <div class="diagram-card">
+                <p class="diagram-title">Leitura correta do funil</p>
+                <div class="svg-wrap">
+                  <svg viewBox="0 0 920 280" width="100%" height="100%" role="img" aria-label="Diagrama de funil de Meta Ads">
+                    <polygon points="70,30 850,30 680,105 240,105" fill="rgba(96,165,250,0.18)" stroke="rgba(96,165,250,0.35)" />
+                    <polygon points="240,115 680,115 590,180 330,180" fill="rgba(110,231,183,0.14)" stroke="rgba(110,231,183,0.35)" />
+                    <polygon points="330,190 590,190 530,245 390,245" fill="rgba(251,191,36,0.14)" stroke="rgba(251,191,36,0.35)" />
+                    <rect x="710" y="190" width="150" height="55" rx="16" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.18)" />
+                    <text x="115" y="75" fill="#dff8ff" font-size="28" font-weight="700">Topo</text>
+                    <text x="360" y="155" fill="#eafff8" font-size="24" font-weight="700">Meio</text>
+                    <text x="432" y="225" fill="#fff4cf" font-size="20" font-weight="700">Fundo</text>
+                    <text x="736" y="223" fill="#eef2ff" font-size="20" font-weight="700">Recorrência</text>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="truth-grid">
+                <div class="truth-card bad">
+                  <h3>Estrutura ruim</h3>
+                  <p>Uma campanha única de vendas com vários públicos misturados, mesmo criativo para todo mundo e nenhuma distinção entre primeira compra e remarketing.</p>
+                </div>
+                <div class="truth-card good">
+                  <h3>Estrutura melhor</h3>
+                  <p>Separação por estado de consciência do usuário. Topo para aquisição, fundo para fechamento e recorrência para cliente existente.</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="pro-section">
+              <span class="section-label">4. Públicos</span>
+              <h2>Público bom não é o “mais segmentado”. É o mais coerente com a hipótese</h2>
+              <p>Público não é coleção de filtros. Público é uma forma de testar <strong>quem deve receber determinada mensagem</strong>. Se a hipótese não existe, a segmentação vira superstição.</p>
+              <div class="two-col" style="margin-top:16px">
+                <div class="practice-card">
+                  <h3>Público frio</h3>
+                  <p>Serve para aquisição. Você ainda está procurando gente que não conhece sua marca.</p>
+                  <ul>
+                    <li>Amplo / broad</li>
+                    <li>Interesses</li>
+                    <li>Lookalike</li>
+                  </ul>
+                </div>
+                <div class="practice-card">
+                  <h3>Público quente</h3>
+                  <p>Serve para remarketing. A pessoa já teve algum contato e precisa de nova pressão, prova, oferta ou lembrança.</p>
+                  <ul>
+                    <li>Engajamento</li>
+                    <li>Visitantes do site</li>
+                    <li>View content</li>
+                    <li>Add to cart</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="three-col" style="margin-top:16px">
+                <div class="check-card">
+                  <h3>Amplo</h3>
+                  <p>Bom quando você tem criativo forte, pixel minimamente saudável e quer dar espaço para o algoritmo encontrar oportunidade.</p>
+                </div>
+                <div class="check-card">
+                  <h3>Interesses</h3>
+                  <p>Útil quando existe uma hipótese clara de afinidade e quando o criativo conversa com essa hipótese.</p>
+                </div>
+                <div class="check-card">
+                  <h3>Lookalike</h3>
+                  <p>Faz sentido quando a origem tem qualidade. Lookalike de base ruim só escala confusão.</p>
+                </div>
+              </div>
+
+              <div class="call-grid">
+                <div class="call-card">
+                  <strong>Exemplo correto</strong>
+                  <p>Lookalike de compradores recentes com ticket relevante para uma campanha de primeira compra.</p>
+                </div>
+                <div class="call-card">
+                  <strong>Exemplo errado</strong>
+                  <p>Criar 12 públicos diferentes com pouca verba só para “testar bastante”, sem massa crítica para entregar.</p>
+                </div>
+                <div class="call-card">
+                  <strong>Critério de simplificação</strong>
+                  <p>Se públicos performam parecido, compartilham criativos e não exigem leitura separada, a conta tende a ganhar com consolidação.</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="pro-section">
+              <span class="section-label">5. Exemplo guiado</span>
+              <h2>Montando uma estrutura racional para um e-commerce de moda feminina</h2>
+              <p>Agora você vai ver o raciocínio aplicado. Imagine um e-commerce de moda com coleção nova, meta de vendas e histórico de tráfego razoável no site.</p>
+
+              <div class="framework">
+                <div class="framework-step">
+                  <div class="step-n">1</div>
+                  <div>
+                    <strong>Defina o problema de negócio</strong>
+                    <p>O objetivo principal é vender. Então a campanha macro não deve ser “engajamento” só porque o criativo é bonito. Se a meta é venda, a arquitetura precisa nascer dessa meta.</p>
+                  </div>
+                </div>
+                <div class="framework-step">
+                  <div class="step-n">2</div>
+                  <div>
+                    <strong>Separe por estado do usuário</strong>
+                    <p>Crie uma frente de aquisição, uma frente de remarketing e uma frente de recorrência. A pergunta central é: essas pessoas estão no mesmo momento da jornada? Se não, separe.</p>
+                  </div>
+                </div>
+                <div class="framework-step">
+                  <div class="step-n">3</div>
+                  <div>
+                    <strong>Escolha públicos coerentes</strong>
+                    <p>Aquisição: broad + interesses + lookalike, se houver base boa. Remarketing: visitantes do site, view content, add to cart. Recorrência: clientes dos últimos 180 dias, com exclusão de compradores muito recentes se a recompra não fizer sentido imediato.</p>
+                  </div>
+                </div>
+                <div class="framework-step">
+                  <div class="step-n">4</div>
+                  <div>
+                    <strong>Adapte a mensagem</strong>
+                    <p>Topo pede ângulo de descoberta e desejo. Fundo pede prova, urgência e redução de risco. Recorrência pede novidade, coleção, cross-sell ou recompra.</p>
+                  </div>
+                </div>
+                <div class="framework-step">
+                  <div class="step-n">5</div>
+                  <div>
+                    <strong>Defina leitura mínima</strong>
+                    <p>Se você criou separações, precisa saber o que espera aprender com elas. Caso contrário, é decoração operacional.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="exercise-grid">
+                <div class="exercise-card">
+                  <h3>Estrutura sugerida</h3>
+                  <ul>
+                    <li><strong>Campanha 1 — Vendas | Topo:</strong> broad, interesses e lookalike de compradores.</li>
+                    <li><strong>Campanha 2 — Vendas | Remarketing:</strong> visitantes do site 30 dias, view content 30 dias, add to cart 14 dias.</li>
+                    <li><strong>Campanha 3 — Vendas | Recorrência:</strong> compradores 180 dias, excluindo compradores muito recentes.</li>
+                  </ul>
+                </div>
+                <div class="exercise-card">
+                  <h3>Por que esta estrutura é boa</h3>
+                  <ul>
+                    <li>Não mistura frio com quente.</li>
+                    <li>Facilita leitura por estágio.</li>
+                    <li>Permite criativos específicos.</li>
+                    <li>Evita interpretar tudo pelo mesmo CPA.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="note-strong"><strong>Importante:</strong> não existe estrutura “bonita” universal. Existe estrutura que torna sua decisão mais clara. Quando a separação não melhora leitura nem ação, ela custa mais do que ajuda.</div>
+            </section>
+
+            <section class="pro-section">
+              <span class="section-label">6. Erros clássicos</span>
+              <h2>Quatro erros que distorcem o raciocínio logo no começo</h2>
+              <div class="two-col" style="margin-top:16px">
+                <div class="truth-card bad">
+                  <h3>Erro 1 — Funil misturado</h3>
+                  <p>Juntar aquisição e remarketing na mesma leitura e depois concluir que “o CPA está bom” ou “está ruim” sem saber qual camada puxou o resultado.</p>
+                </div>
+                <div class="truth-card bad">
+                  <h3>Erro 2 — Segmentação ornamental</h3>
+                  <p>Multiplicar interesses, lookalikes e conjuntos sem verba e sem hipótese clara.</p>
+                </div>
+                <div class="truth-card bad">
+                  <h3>Erro 3 — Criativo tratado como detalhe</h3>
+                  <p>Separar público com rigor e depois usar a mesma comunicação para gente em momentos completamente diferentes.</p>
+                </div>
+                <div class="truth-card bad">
+                  <h3>Erro 4 — Estrutura sem pergunta de aprendizado</h3>
+                  <p>Criar divisões que não respondem nada. Se você não sabe o que pretende comparar, não precisa daquela separação.</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="pro-section">
+              <span class="section-label">7. Exercício guiado</span>
+              <h2>Agora faça você</h2>
+              <p>Escolha um cliente seu e aplique o framework abaixo. Não vale responder em uma frase. O ganho está em desenhar a estrutura e justificar cada parte.</p>
+              <div class="exercise-grid">
+                <div class="exercise-card">
+                  <h3>Passo a passo</h3>
+                  <ol>
+                    <li>Escreva o objetivo central da conta hoje.</li>
+                    <li>Defina se há necessidade de separar topo, remarketing e recorrência.</li>
+                    <li>Liste os públicos possíveis em cada estágio.</li>
+                    <li>Defina quais criativos combinam com cada estágio.</li>
+                    <li>Escreva uma linha explicando por que cada campanha existe.</li>
+                  </ol>
+                </div>
+                <div class="exercise-card">
+                  <h3>Checklist de qualidade</h3>
+                  <ul>
+                    <li>Existe separação só onde ela ajuda?</li>
+                    <li>Cada público tem hipótese clara?</li>
+                    <li>A mensagem muda conforme o estágio?</li>
+                    <li>A estrutura facilita diagnóstico?</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="board">
+                <h3>Seu quadro de resposta</h3>
+                <p>Use este espaço como modelo. Depois replique no seu caderno, Notion ou documento de trabalho.</p>
+                <div class="board-lines">
+                  <div class="board-line"></div>
+                  <div class="board-line"></div>
+                  <div class="board-line"></div>
+                  <div class="board-line"></div>
+                  <div class="board-line"></div>
+                  <div class="board-line"></div>
+                </div>
+              </div>
+            </section>
+
+            <section class="pro-section">
+              <span class="section-label">8. Mini quiz com gabarito</span>
+              <h2>Teste se você realmente entendeu</h2>
+              <div class="quiz-list">
+                <div class="quiz-item">
+                  <strong>1. O que justifica criar uma nova campanha?</strong>
+                  <p>Explique com suas palavras quando a conta precisa de uma nova campanha e quando isso é só excesso de estrutura.</p>
+                  <details class="answer">
+                    <summary>Ver gabarito comentado</summary>
+                    <p>Uma nova campanha faz sentido quando há mudança real de objetivo macro, necessidade forte de controle separado ou natureza de entrega distinta. Se você só quer testar criativo ou público sem alterar essa camada, provavelmente a campanha nova é exagero.</p>
+                  </details>
+                </div>
+                <div class="quiz-item">
+                  <strong>2. Por que topo e remarketing não devem ser lidos como a mesma coisa?</strong>
+                  <p>Responda pensando em estado mental, nível de consciência e expectativa de CPA.</p>
+                  <details class="answer">
+                    <summary>Ver gabarito comentado</summary>
+                    <p>Porque são pessoas em momentos diferentes. Público frio ainda está descobrindo a marca; remarketing já recebeu estímulo anterior. Misturar os dois distorce análise e decisão, porque o CPA esperado, a taxa de conversão e o tipo de criativo são diferentes.</p>
+                  </details>
+                </div>
+                <div class="quiz-item">
+                  <strong>3. O que torna um público útil?</strong>
+                  <p>Descreva o critério que separa um público útil de uma segmentação aleatória.</p>
+                  <details class="answer">
+                    <summary>Ver gabarito comentado</summary>
+                    <p>Um público útil existe para testar uma hipótese específica de entrega ou comunicação. Se ele não melhora aprendizado, diagnóstico ou execução, é só segmentação ornamental.</p>
+                  </details>
+                </div>
+                <div class="quiz-item">
+                  <strong>4. Quando simplificar costuma ser uma boa decisão?</strong>
+                  <p>Dê pelo menos dois sinais de que a conta pode estar complexa demais.</p>
+                  <details class="answer">
+                    <summary>Ver gabarito comentado</summary>
+                    <p>Quando públicos diferentes performam de forma parecida, quando a verba não sustenta separações, quando várias divisões usam a mesma mensagem e quando a leitura ficou confusa sem gerar ação melhor.</p>
+                  </details>
+                </div>
+                <div class="quiz-item">
+                  <strong>5. Qual é o papel do anúncio dentro da hierarquia?</strong>
+                  <p>Responda sem definir tecnicamente; explique o papel estratégico dele.</p>
+                  <details class="answer">
+                    <summary>Ver gabarito comentado</summary>
+                    <p>O anúncio é a forma concreta como sua hipótese encontra o usuário. É a peça que traduz oferta, ângulo, prova e ação. Sem criativo coerente com o estágio do público, a estrutura perde força.</p>
+                  </details>
+                </div>
+              </div>
+            </section>
+
+            <section class="pro-section">
+              <span class="section-label">9. Inglês e japonês aplicados</span>
+              <h2>Fechamento curto para consolidar sem pesar</h2>
+              <div class="lang-grid">
+                <div class="micro-card">
+                  <h3>Inglês · 10 minutos</h3>
+                  <p>Objetivo: fixar vocabulário profissional da aula.</p>
+                  <ul>
+                    <li>Repita em voz alta: <strong>campaign</strong>, <strong>ad set</strong>, <strong>ad</strong>, <strong>objective</strong>, <strong>custom audience</strong>, <strong>lookalike audience</strong>.</li>
+                    <li>Escreva 3 frases: “This campaign is for prospecting.” “This ad set targets website visitors.” “This ad is for abandoned cart users.”</li>
+                    <li>Explique em inglês, com frases simples, sua estrutura ideal em 30 segundos.</li>
+                  </ul>
+                </div>
+                <div class="micro-card">
+                  <h3>Japonês · 10 minutos</h3>
+                  <p>Objetivo: manter constância e associação com o estudo.</p>
+                  <ul>
+                    <li>Leia em voz alta: わたし は きょう べんきょう しました。</li>
+                    <li>Pratique 5 vezes: こうこく (anúncio), もくひょう (objetivo), がくしゅう (estudo).</li>
+                    <li>Escreva uma frase simples: きょう は Meta Ads を べんきょう しました。</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section class="pro-section">
+              <span class="section-label">10. Caderno de erros</span>
+              <h2>Feche a aula do jeito certo</h2>
+              <p>Não termine dizendo “entendi”. Termine registrando onde você errou. Esse é o ponto. Anote:</p>
+              <div class="three-col" style="margin-top:16px">
+                <div class="glossary-card">
+                  <h3>Erro de conceito</h3>
+                  <p>O que você confundiu entre campanha, conjunto e anúncio?</p>
+                </div>
+                <div class="glossary-card">
+                  <h3>Erro de estrutura</h3>
+                  <p>Onde você percebeu que mistura públicos ou estágios sem necessidade?</p>
+                </div>
+                <div class="glossary-card">
+                  <h3>Erro de decisão</h3>
+                  <p>Que tipo de separação você vinha fazendo sem hipótese real?</p>
+                </div>
+              </div>
+              <div class="quote-box">Amanhã, antes de começar a Apostila 1.2, revise estes três pontos por 5 minutos. É assim que a revisão espaçada entra no fluxo sem virar peso.</div>
+            </section>
+
+            <section class="pro-section">
+              <span class="section-label">11. Base consultada</span>
+              <h2>Referências da aula</h2>
+              <p>Esta apostila foi construída em cima de duas bases: documentação oficial sobre a estrutura do ecossistema Meta Ads e evidência educacional sobre recuperação ativa, alternância entre exemplo e prática e combinação de texto com apoio visual.</p>
+              <div class="reference-list">
+                <a href="https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group/" target="_blank" rel="noopener noreferrer">
+                  Meta for Developers · Campaign reference
+                  <small>Campanha como agrupamento de conjuntos sob o mesmo objetivo de negócio.</small>
+                </a>
+                <a href="https://developers.facebook.com/docs/marketing-api/reference/ad-campaign/" target="_blank" rel="noopener noreferrer">
+                  Meta for Developers · Ad set reference
+                  <small>Conjunto como camada que compartilha verba, agenda, entrega e targeting.</small>
+                </a>
+                <a href="https://developers.facebook.com/docs/marketing-api/reference/adgroup/" target="_blank" rel="noopener noreferrer">
+                  Meta for Developers · Ad reference
+                  <small>O anúncio depende de um ad set e de um criativo para existir.</small>
+                </a>
+                <a href="https://developers.facebook.com/docs/marketing-api/audiences/overview/" target="_blank" rel="noopener noreferrer">
+                  Meta for Developers · Audiences overview
+                  <small>Visão geral de custom audiences e lookalikes.</small>
+                </a>
+                <a href="https://ies.ed.gov/ncee/wwc/Docs/PracticeGuide/20072004.pdf" target="_blank" rel="noopener noreferrer">
+                  Institute of Education Sciences · Organizing Instruction and Study to Improve Student Learning
+                  <small>Base para recuperação ativa, interleaving de exemplos e problemas e apoio visual com texto.</small>
+                </a>
+              </div>
+            </section>
+          </div>
+
+          <div class="mark-box">
+            <div>
+              <strong>Marcar esta apostila como concluída</strong>
+              <p>O status é salvo no navegador deste dispositivo para aparecer no cronograma.</p>
+            </div>
+            <label>
+              <input id="completion-switch" class="switch" type="checkbox" aria-label="Marcar apostila como concluída">
+            </label>
+          </div>
+
+          <div class="action-row">
+            <a class="btn btn-secondary" href="../index.html">Retornar ao cronograma</a>
+            <a class="btn btn-primary" href="semana-01-dia-02.html">Próxima apostila</a>
+          </div>
+        </article>
+
+        <aside class="card aside-card">
+          <h3>Plano de estudo da aula</h3>
+          <p>Não tente “consumir” a aula. Trabalhe a aula. O método aqui foi desenhado para retenção e transferência, não para leitura passiva.</p>
+
+          <div class="status-row">
+            <div class="aside-mini">
+              <strong>Bloco 1</strong>
+              <span class="small-muted">10 min · recuperação ativa</span>
+            </div>
+            <div class="aside-mini">
+              <strong>Bloco 2</strong>
+              <span class="small-muted">25 min · conteúdo e diagrama</span>
+            </div>
+            <div class="aside-mini">
+              <strong>Bloco 3</strong>
+              <span class="small-muted">25 min · exemplo guiado</span>
+            </div>
+            <div class="aside-mini">
+              <strong>Bloco 4</strong>
+              <span class="small-muted">15 min · exercício e quiz</span>
+            </div>
+          </div>
+
+          <div class="callout" style="margin-top:16px">
+            <strong>Saída concreta de hoje</strong>
+            <p>Uma estrutura completa de Meta Ads para um cliente seu, separada por estágio de funil e justificada em texto.</p>
+          </div>
+
+          <div class="aside-check">
+            <label><input type="checkbox"> Meu objetivo da conta está claro.</label>
+            <label><input type="checkbox"> Eu separei frio, quente e recorrência só quando fez sentido.</label>
+            <label><input type="checkbox"> Cada público tem uma hipótese.</label>
+            <label><input type="checkbox"> Minha mensagem muda conforme o estágio.</label>
+            <label><input type="checkbox"> Eu consigo explicar a estrutura sem consultar.</label>
+          </div>
+
+          <div class="timeline-card" style="margin-top:16px">
+            <h3>Resumo brutalmente honesto</h3>
+            <p>Se você não sabe responder por que cada campanha existe, a conta ainda está mal pensada. E se a conta está mal pensada, a otimização depois vira remendo.</p>
+          </div>
+
+          <div class="insight-card" style="margin-top:16px">
+            <h3>O que revisar amanhã em 5 minutos</h3>
+            <ul>
+              <li>Definição de campanha, conjunto e anúncio.</li>
+              <li>Diferença entre topo, fundo e recorrência.</li>
+              <li>Critério para simplificar em vez de fragmentar.</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">Apostila 1.1 refeita com profundidade, método e aplicação prática.</div>
+  </footer>
+
+  <script>
+    (function () {
+      const lessonId = 'semana-01-dia-01-estrutura-de-campanha-funil-e-publicos';
+      const stateKey = 'seiji_study_progress_v1';
+      const toggle = document.getElementById('completion-switch');
+      if (!toggle) return;
+
+      function readState() {
+        try { return JSON.parse(localStorage.getItem(stateKey) || '{}'); }
+        catch { return {}; }
+      }
+
+      function saveState(state) {
+        localStorage.setItem(stateKey, JSON.stringify(state));
+      }
+
+      const state = readState();
+      toggle.checked = !!state[lessonId];
+
+      toggle.addEventListener('change', function () {
+        const next = readState();
+        next[lessonId] = this.checked;
+        saveState(next);
+      });
+    })();
+  </script>
+</body>
+</html>
