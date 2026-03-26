@@ -3,38 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Carregando apostila...</title>
+  <title>Apostila</title>
   <meta name="description" content="Apostila dinâmica do cronograma de estudos Seiji.">
   <link rel="stylesheet" href="../assets/css/style.css">
-  <style>
-    .lesson-loading{padding:56px 0}
-    .loading-card{padding:28px}
-    .loading-card h1{margin:14px 0 10px;font-size:clamp(1.8rem,3vw,2.8rem)}
-    .loading-card p{margin:0;color:var(--muted);line-height:1.8}
-  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container">
-      <a class="brand" href="../index.html">
-        <span class="brand-badge">S</span>
-        <span>seiji.study</span>
-      </a>
-      <nav class="nav-links" aria-label="navegação principal">
-        <a class="nav-link" href="../index.html">Cronograma</a>
-        <a class="nav-link active" href="#">Apostila</a>
-      </nav>
-    </div>
-  </header>
-  <main class="lesson-loading">
-    <div class="container">
-      <article class="card loading-card">
-        <span class="eyebrow">Apostila dinâmica</span>
-        <h1>Carregando conteúdo da aula...</h1>
-        <p>Se o conteúdo não aparecer em alguns segundos, atualize a página. Esta apostila é renderizada com base no cronograma oficial do projeto.</p>
-      </article>
-    </div>
-  </main>
+  <noscript>
+    <main class="container" style="padding:40px 0;color:#fff">Esta apostila precisa de JavaScript habilitado para carregar o conteúdo.</main>
+  </noscript>
   <script src="../assets/js/study-data.js"></script>
   <script src="../assets/js/lesson-runtime.js"></script>
 </body>

@@ -3,166 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cronograma de Estudos · Seiji</title>
-  <meta name="description" content="Cronograma de estudos de Onohara Seiji com progresso, semanas e detecção automática das apostilas publicadas no GitHub." />
+  <title>Calendário de Estudos · Seiji</title>
+  <meta name="description" content="Calendário de estudos de Onohara Seiji com link direto para cada apostila publicada no GitHub Pages." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .calendar-shell{padding:40px 0 72px}
+    .calendar-hero{padding:28px}
+    .calendar-hero h1{margin:14px 0 10px;font-size:clamp(2rem,4vw,3.4rem)}
+    .calendar-hero p{margin:0;color:var(--muted);line-height:1.8;max-width:880px}
+    .calendar-note{margin-top:16px;padding:14px 16px;border-radius:16px;background:rgba(124,179,255,.10);border:1px solid rgba(124,179,255,.18);color:#dce9ff}
+    .calendar-stack{display:grid;gap:18px;margin-top:24px}
+    .calendar-week{padding:24px}
+    .calendar-week header{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;justify-content:space-between;margin-bottom:18px}
+    .calendar-week h2{margin:8px 0 6px}
+    .calendar-week p{margin:0;color:var(--muted);line-height:1.7}
+    .week-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(148,240,213,.10);border:1px solid rgba(148,240,213,.20);color:#e1fff4;font-size:.92rem;font-weight:700}
+    .calendar-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+    .calendar-day{display:block;padding:18px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid var(--line);min-height:180px;transition:transform .18s ease,border-color .18s ease,background .18s ease}
+    .calendar-day:hover{transform:translateY(-2px);border-color:rgba(124,179,255,.45);background:rgba(124,179,255,.10)}
+    .calendar-day small{display:block;color:var(--muted);margin-bottom:10px}
+    .calendar-day strong{display:block;line-height:1.35;margin-bottom:10px}
+    .calendar-day .type-tag,.calendar-day .subject-tag{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;border:1px solid var(--line);font-size:.82rem;margin:0 8px 8px 0}
+    .calendar-day .type-tag{background:rgba(124,179,255,.10);color:#dce9ff}
+    .calendar-day .subject-tag{background:rgba(255,255,255,.04);color:var(--muted)}
+    .calendar-day .day-link{display:inline-flex;align-items:center;gap:8px;margin-top:8px;color:#dff8ff;font-weight:700}
+    .calendar-day .day-link::after{content:"→"}
+    @media (max-width: 1100px){.calendar-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media (max-width: 720px){.calendar-grid{grid-template-columns:1fr}.calendar-shell{padding-top:28px}.calendar-week{padding:20px}}
+  </style>
 </head>
 <body>
-  <header class="topbar">
+  <main class="calendar-shell">
     <div class="container">
-      <a class="brand" href="index.html">
-        <span class="brand-badge">S</span>
-        <span>seiji.study</span>
-      </a>
-      <nav class="nav-links" aria-label="Navegação principal">
-        <a class="nav-link active" href="#cronograma">Cronograma</a>
-        <a class="nav-link" href="#metodologia">Metodologia</a>
-        <a class="nav-link" href="#progresso">Progresso</a>
-      </nav>
+      <section class="card calendar-hero">
+        <span class="eyebrow">Projeto de estudo · 12 semanas · calendário das apostilas</span>
+        <h1>Calendário de estudos</h1>
+        <p>Cada dia do cronograma leva direto para a apostila correspondente. As apostilas mantêm navegação no rodapé com <strong>voltar ao cronograma</strong>, <strong>apostila anterior</strong> e <strong>próxima apostila</strong>.</p>
+        <div class="calendar-note">Abra a aula pelo dia correspondente. O calendário foi simplificado para funcionar como mapa direto das apostilas.</div>
+      </section>
+      <section id="calendar-mount" class="calendar-stack" aria-label="Calendário das apostilas"></section>
     </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <article class="card hero-card">
-          <span class="eyebrow">Projeto de estudo · 12 semanas · GitHub Pages</span>
-          <h1>Cronograma de estudos para Onohara Seiji</h1>
-          <p class="lead">
-            Plano estruturado para 60 a 90 minutos por dia, com conteúdo novo de segunda a quinta,
-            revisão na sexta e teste prático no sábado. O cronograma cobre Meta Ads, Google Ads,
-            traqueamento, n8n, CRM, prospecção ativa, vendas, inglês e japonês.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#cronograma">Ver cronograma completo</a>
-            <a class="btn btn-secondary" id="first-lesson-link" href="apostilas/dia-001.html">Abrir primeira apostila publicada</a>
-          </div>
-          <p id="availability-note" class="note" style="margin-top:16px">
-            Verificando quais apostilas já estão publicadas no repositório...
-          </p>
-        </article>
-
-        <aside class="card profile-card">
-          <h2>Perfil do plano</h2>
-          <div class="profile-grid">
-            <div class="info-pill"><small>Nome</small><strong>Onohara Seiji</strong></div>
-            <div class="info-pill"><small>Profissão</small><strong>Gestor de tráfego pago</strong></div>
-            <div class="info-pill"><small>Rotina</small><strong>Seg a sáb</strong></div>
-            <div class="info-pill"><small>Bloco diário</small><strong>60 a 90 min</strong></div>
-            <div class="info-pill"><small>Idiomas</small><strong>Inglês + japonês</strong></div>
-            <div class="info-pill"><small>Modo de publicação</small><strong>Detecção automática</strong></div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section id="metodologia" class="section">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Metodologia das apostilas</h2>
-            <p class="section-lead">
-              Cada apostila foi pensada para ensinar de verdade: revisão espaçada, recuperação ativa,
-              exemplo guiado, exercício aplicado e caderno de erros.
-            </p>
-          </div>
-        </div>
-
-        <div class="methods-grid">
-          <article class="card method-card">
-            <h3>Revisão espaçada</h3>
-            <p>Toda aula nova puxa da memória a aula anterior antes de introduzir conteúdo novo.</p>
-          </article>
-          <article class="card method-card">
-            <h3>Recuperação ativa</h3>
-            <p>As perguntas aparecem antes da resposta para evitar leitura passiva e falsa sensação de domínio.</p>
-          </article>
-          <article class="card method-card">
-            <h3>Exemplo guiado + prática</h3>
-            <p>Você entende o conceito, acompanha um raciocínio completo e depois executa no seu contexto.</p>
-          </article>
-          <article class="card method-card">
-            <h3>Aplicação incremental</h3>
-            <p>O cronograma aceita novas apostilas sem refazer a estrutura: basta publicar o novo arquivo em <code>apostilas/</code>.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="progresso" class="section">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Painel de progresso</h2>
-            <p class="section-lead">
-              O progresso considera só as apostilas já publicadas. Conforme você subir novos arquivos,
-              o cronograma passa a reconhecê-los automaticamente.
-            </p>
-          </div>
-        </div>
-        <div id="stats-mount" class="stats-grid"></div>
-      </div>
-    </section>
-
-    <section id="cronograma" class="section">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Cronograma completo</h2>
-            <p class="section-lead">
-              O plano completo continua visível, mas apenas as aulas já publicadas aparecem com botão de abertura.
-              As demais ficam marcadas como <strong>em breve</strong> até o upload do arquivo correspondente.
-            </p>
-          </div>
-        </div>
-        <div id="weeks-mount" class="weeks-grid"></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Como o sistema funciona agora</h2>
-            <p class="section-lead">
-              Esta base foi ajustada para evitar 404 e manter o projeto simples de operar.
-            </p>
-          </div>
-        </div>
-        <div class="resources-grid">
-          <article class="card resource-card">
-            <h3>Sem mexer no cronograma</h3>
-            <p>Você publica uma nova apostila em <code>apostilas/dia-004.html</code>, <code>apostilas/dia-005.html</code> e assim por diante. O cronograma detecta o arquivo automaticamente.</p>
-          </article>
-          <article class="card resource-card">
-            <h3>Sem gerar 404 no restante</h3>
-            <p>As aulas que ainda não existem continuam visíveis no plano, mas ficam desabilitadas até o upload correspondente.</p>
-          </article>
-          <article class="card resource-card">
-            <h3>Compatível com o que já existe</h3>
-            <p>As três apostilas atuais continuam funcionando, e o progresso foi unificado para conversar com o cronograma.</p>
-          </article>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
-    <div class="container">
-      Base ajustada para GitHub Pages, com detecção automática das apostilas publicadas na pasta <code>apostilas/</code>.
-    </div>
+    <div class="container">Calendário simplificado com link direto para cada apostila do projeto.</div>
   </footer>
 
-  <script>
-    window.SEIJI_REPO_CONFIG = {
-      owner: "OnoharaSeiji",
-      repo: "seiji",
-      lessonsDir: "apostilas"
-    };
-  </script>
   <script src="assets/js/study-data.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
