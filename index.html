@@ -3,106 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calendário de Estudos · Seiji</title>
-  <meta name="description" content="Calendário de estudos de Onohara Seiji com link direto para cada apostila publicada no GitHub Pages." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <title>Cronograma em Calendário · Seiji</title>
+  <meta name="description" content="Calendário literal do projeto Seiji com as apostilas posicionadas nas datas reais a partir de 23 de março de 2026." />
   <link rel="stylesheet" href="assets/css/style.css" />
   <style>
-    .calendar-shell{padding:38px 0 74px}
-    .calendar-hero{
-      position:relative;
-      overflow:hidden;
-      padding:30px;
-      background:
-        radial-gradient(circle at top right, rgba(124,140,255,.16), transparent 30%),
-        radial-gradient(circle at bottom left, rgba(75,192,176,.14), transparent 28%),
-        linear-gradient(135deg, rgba(255,255,255,.94), rgba(255,250,240,.92));
-    }
-    .calendar-hero::after{
-      content:"";
-      position:absolute;
-      width:320px;height:320px;border-radius:50%;
-      right:-90px;top:-120px;
-      background:radial-gradient(circle, rgba(124,140,255,.16), transparent 68%);
-      pointer-events:none;
-    }
-    .calendar-hero h1{margin:14px 0 10px;font-size:clamp(2.3rem,5vw,4.2rem)}
-    .calendar-hero p{margin:0;color:var(--muted);line-height:1.84;max-width:900px}
-    .calendar-note{
-      margin-top:18px;padding:16px 18px;border-radius:18px;
-      background:linear-gradient(135deg, rgba(124,140,255,.10), rgba(75,192,176,.10));
-      border:1px solid rgba(124,140,255,.16);color:#4f5f79;font-weight:600
-    }
-    .calendar-stack{display:grid;gap:20px;margin-top:24px}
-    .calendar-week{padding:24px}
-    .calendar-week header{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;justify-content:space-between;margin-bottom:18px}
-    .calendar-week h2{margin:8px 0 6px;font-size:clamp(1.4rem,2vw,2rem)}
-    .calendar-week p{margin:0;color:var(--muted);line-height:1.7;max-width:800px}
-    .week-badge{
-      display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;
-      background:linear-gradient(135deg, rgba(124,140,255,.12), rgba(75,192,176,.11));
-      border:1px solid rgba(124,140,255,.16);color:#4c607d;font-size:.9rem;font-weight:800
-    }
-    .calendar-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
-    .calendar-day{
-      display:flex;flex-direction:column;justify-content:space-between;gap:10px;
-      padding:18px;border-radius:22px;min-height:210px;
-      background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,250,240,.90));
-      border:1px solid rgba(33,50,74,.08);
-      box-shadow:0 14px 26px rgba(63,80,108,.08);
-      transition:.18s ease;
-      position:relative;overflow:hidden
-    }
-    .calendar-day::before{
-      content:"";
-      position:absolute;inset:auto auto -28px -28px;width:110px;height:110px;border-radius:50%;
-      background:radial-gradient(circle, rgba(244,184,96,.12), transparent 70%);
-      pointer-events:none
-    }
-    .calendar-day:hover{
-      transform:translateY(-4px);
-      border-color:rgba(124,140,255,.22);
-      box-shadow:0 18px 34px rgba(63,80,108,.12)
-    }
-    .calendar-day small{display:block;color:var(--muted);margin-bottom:4px;font-weight:700;line-height:1.45}
-    .calendar-day strong{display:block;line-height:1.35;font-size:1rem}
-    .calendar-day p{margin:0;color:var(--muted);line-height:1.6;font-size:.93rem}
-    .calendar-day .type-tag,.calendar-day .subject-tag{
-      display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:999px;
-      font-size:.8rem;font-weight:700;margin:0 8px 0 0
-    }
-    .calendar-day .type-tag{
-      background:rgba(124,140,255,.10);border:1px solid rgba(124,140,255,.14);color:#546a8b
-    }
-    .calendar-day .subject-tag{
-      background:rgba(75,192,176,.10);border:1px solid rgba(75,192,176,.14);color:#406c67
-    }
-    .day-tags{display:flex;flex-wrap:wrap;gap:8px}
-    .calendar-day .day-link{display:inline-flex;align-items:center;gap:8px;margin-top:auto;color:#4b60da;font-weight:800}
-    .calendar-day .day-link::after{content:"→"}
-    @media (max-width: 1120px){.calendar-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-    @media (max-width: 740px){.calendar-grid{grid-template-columns:1fr}.calendar-shell{padding-top:24px}.calendar-week,.calendar-hero{padding:20px}}
+    .calendar-shell{padding:34px 0 70px}
+    .hero-card{padding:28px;position:relative;overflow:hidden}
+    .hero-card::after{content:'';position:absolute;width:340px;height:340px;border-radius:50%;right:-110px;top:-140px;background:radial-gradient(circle, rgba(79,124,255,.14), transparent 70%)}
+    .hero-card h1{margin:14px 0 10px;font-size:clamp(2.4rem,5vw,4rem);font-family:'Fredoka',cursive;line-height:1.04;letter-spacing:-.03em}
+    .hero-card p{margin:0;color:var(--muted);line-height:1.82;max-width:920px}
+    .hero-note{margin-top:18px;padding:16px 18px;border-radius:18px;background:linear-gradient(135deg, rgba(79,124,255,.10), rgba(55,183,165,.08));border:1px solid rgba(79,124,255,.16);font-weight:800;color:#4e6787}
+    .months{display:grid;gap:22px;margin-top:24px}
+    .month-card{padding:22px}
+    .month-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+    .month-head h2{margin:8px 0 4px;font-family:'Fredoka',cursive;font-size:clamp(1.6rem,2.5vw,2.3rem)}
+    .month-head p{margin:0;color:var(--muted);font-weight:700}
+    .month-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(79,124,255,.10);border:1px solid rgba(79,124,255,.14);color:#4f6788;font-weight:900;font-size:.85rem}
+    .weekday-row{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;margin-bottom:10px}
+    .weekday{padding:10px 8px;text-align:center;border-radius:12px;background:rgba(79,124,255,.08);color:#59708f;font-size:.82rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase}
+    .month-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px}
+    .day-cell{min-height:132px;border-radius:20px;padding:12px;position:relative;overflow:hidden;border:1px solid var(--line);background:rgba(255,255,255,.58)}
+    .day-cell.empty{background:rgba(255,255,255,.28);border-style:dashed;opacity:.48}
+    .day-cell.sunday{background:rgba(240,244,249,.7)}
+    .day-cell.has-lesson{background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(255,249,238,.95));box-shadow:0 10px 20px rgba(24,49,79,.06);transition:.18s ease}
+    .day-cell.has-lesson:hover{transform:translateY(-3px);border-color:rgba(79,124,255,.24);box-shadow:0 16px 28px rgba(24,49,79,.10)}
+    .day-num{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;font-weight:900;color:#516885}
+    .day-num span{font-size:1.05rem;font-family:'Fredoka',cursive}
+    .lesson-tag{padding:4px 8px;border-radius:999px;background:rgba(79,124,255,.10);border:1px solid rgba(79,124,255,.14);font-size:.72rem;font-weight:900;color:#5b7291}
+    .lesson-title{display:block;font-size:.96rem;line-height:1.35;font-weight:900;margin-bottom:8px;color:var(--ink)}
+    .lesson-meta{font-size:.8rem;color:var(--muted);font-weight:800;line-height:1.45}
+    .lesson-open{display:inline-flex;align-items:center;gap:8px;margin-top:10px;color:var(--blue);font-size:.84rem;font-weight:900}
+    .legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .legend-item{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:.82rem;font-weight:900;color:#617792}
+    .dot{width:10px;height:10px;border-radius:999px;background:rgba(79,124,255,.40)}
+    .dot.sunday{background:rgba(148,163,184,.5)}
+    .dot.empty{background:rgba(203,213,225,.8)}
+    @media (max-width:980px){.weekday-row,.month-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+    @media (max-width:680px){.weekday-row,.month-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.day-cell{min-height:120px}}
   </style>
 </head>
 <body>
   <main class="calendar-shell">
     <div class="container">
-      <section class="card calendar-hero">
-        <span class="eyebrow">Projeto de estudo · 12 semanas · calendário das apostilas</span>
-        <h1>Calendário de estudos</h1>
-        <p>Cada dia do cronograma leva direto para a apostila correspondente. As apostilas mantêm navegação no rodapé com <strong>voltar ao cronograma</strong>, <strong>apostila anterior</strong> e <strong>próxima apostila</strong>.</p>
-        <div class="calendar-note">Abra a aula pelo dia correspondente. O calendário foi simplificado para funcionar como mapa direto das apostilas.</div>
+      <section class="card hero-card">
+        <span class="eyebrow">Cronograma literal · início em 23/03/2026 · segunda a sábado</span>
+        <h1>Cronograma em calendário</h1>
+        <p>As apostilas agora aparecem em um calendário real, com datas correspondentes ao estudo. A <strong>apostila 1</strong> começa em <strong>segunda-feira, 23 de março de 2026</strong>, e o cronograma segue de <strong>segunda a sábado</strong> até a última apostila.</p>
+        <div class="hero-note">Este calendário posiciona cada apostila em seu dia real. Domingos ficam vazios para manter a lógica original do cronograma de 6 estudos por semana.</div>
       </section>
-      <section id="calendar-mount" class="calendar-stack" aria-label="Calendário das apostilas"></section>
+      <section id="calendar-mount" class="months" aria-label="Calendário literal das apostilas"></section>
     </div>
   </main>
-
-  <footer class="footer">
-    <div class="container">Calendário simplificado com link direto para cada apostila do projeto.</div>
-  </footer>
-
+  <footer class="footer"><div class="container">Calendário literal do projeto Seiji com 72 apostilas distribuídas de 23/03/2026 a 13/06/2026.</div></footer>
   <script src="assets/js/study-data.js"></script>
   <script src="assets/js/main.js"></script>
 </body>

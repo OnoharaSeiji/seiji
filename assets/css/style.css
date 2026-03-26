@@ -1,100 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap');
 :root{
-  --bg:#f5f2e9;
-  --bg-2:#eef6ff;
+  --ink:#18314f;
+  --navy:#1f3b63;
+  --blue:#4f7cff;
+  --blue2:#8bb3ff;
+  --teal:#37b7a5;
+  --green:#22a861;
+  --amber:#f4b860;
+  --orange:#f08d49;
+  --red:#e56b79;
+  --purple:#8d71ff;
+  --bg:#f7f3ea;
+  --bg2:#eef7ff;
   --panel:#ffffff;
-  --panel-2:#fffaf0;
-  --text:#21324a;
+  --panel-soft:#fffaf1;
+  --line:rgba(24,49,79,.10);
+  --line-strong:rgba(24,49,79,.18);
   --muted:#64748b;
-  --accent:#4bc0b0;
-  --accent-2:#7c8cff;
-  --accent-3:#f4b860;
-  --warning:#f59e0b;
-  --danger:#ef6b7a;
-  --success:#22c55e;
-  --line:rgba(33,50,74,.10);
-  --line-strong:rgba(33,50,74,.18);
-  --shadow:0 24px 60px rgba(54,72,99,.12);
-  --shadow-soft:0 12px 28px rgba(54,72,99,.08);
-  --radius:28px;
-  --radius-sm:18px;
+  --shadow:0 18px 42px rgba(24,49,79,.10);
+  --shadow-soft:0 10px 24px rgba(24,49,79,.06);
+  --radius:24px;
+  --radius-sm:16px;
   --max:1200px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0;
-  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-  color:var(--text);
+  font-family:'Nunito',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+  color:var(--ink);
   background:
-    radial-gradient(circle at top left, rgba(124,140,255,.18), transparent 28%),
-    radial-gradient(circle at top right, rgba(75,192,176,.16), transparent 30%),
-    radial-gradient(circle at bottom left, rgba(244,184,96,.14), transparent 24%),
-    linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 44%, #f7f4ec 100%);
+    radial-gradient(circle at top left, rgba(79,124,255,.14), transparent 28%),
+    radial-gradient(circle at top right, rgba(55,183,165,.12), transparent 26%),
+    radial-gradient(circle at bottom left, rgba(244,184,96,.10), transparent 24%),
+    linear-gradient(180deg, var(--bg2) 0%, var(--bg) 44%, #f9f5ee 100%);
   min-height:100vh;
 }
 body::before{
-  content:"";
+  content:'';
   position:fixed;
   inset:0;
   pointer-events:none;
-  opacity:.25;
+  opacity:.18;
   background-image:
-    linear-gradient(rgba(124,140,255,.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124,140,255,.07) 1px, transparent 1px);
-  background-size:34px 34px;
-  mask-image:linear-gradient(180deg, rgba(0,0,0,.8), rgba(0,0,0,.18));
+    linear-gradient(rgba(79,124,255,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79,124,255,.08) 1px, transparent 1px);
+  background-size:40px 40px;
+  mask-image:linear-gradient(180deg, rgba(0,0,0,.85), rgba(0,0,0,.20));
 }
 a{color:inherit;text-decoration:none}
 img{max-width:100%}
 .container{width:min(calc(100% - 28px),var(--max));margin:0 auto;position:relative;z-index:1}
 .card{
-  background:linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,250,240,.92));
+  background:linear-gradient(180deg, rgba(255,255,255,.97), rgba(255,250,241,.94));
   border:1px solid var(--line);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
-  backdrop-filter:blur(8px);
 }
 .eyebrow{
   display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;
-  background:linear-gradient(135deg, rgba(124,140,255,.12), rgba(75,192,176,.10));
-  color:#49617f;font-size:.88rem;font-weight:700;border:1px solid rgba(124,140,255,.16)
+  background:linear-gradient(135deg, rgba(79,124,255,.12), rgba(55,183,165,.10));
+  color:#4b6486;border:1px solid rgba(79,124,255,.14);font-size:.86rem;font-weight:900;letter-spacing:.03em
 }
-h1{font-size:clamp(2rem,4vw,3.8rem);line-height:1.04;margin:18px 0 14px;letter-spacing:-.05em}
-h2,h3{letter-spacing:-.03em}
-p{line-height:1.7}
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  padding:14px 20px;border-radius:999px;border:1px solid var(--line);cursor:pointer;
-  font-weight:800;background:#fff;color:var(--text);transition:.18s ease;
-  box-shadow:var(--shadow-soft)
+  padding:13px 18px;border-radius:999px;border:1px solid var(--line);cursor:pointer;
+  font-weight:900;background:#fff;color:var(--ink);transition:.18s ease;box-shadow:var(--shadow-soft)
 }
-.btn:hover{transform:translateY(-2px);border-color:rgba(124,140,255,.35)}
-.btn-primary{
-  background:linear-gradient(135deg, var(--accent-2), var(--accent));
-  color:#fff;border:none
-}
-.btn-secondary{
-  background:rgba(255,255,255,.84);
-  color:var(--text)
-}
-.footer{padding:28px 0 46px;color:var(--muted)}
+.btn:hover{transform:translateY(-2px);border-color:rgba(79,124,255,.30)}
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--teal));color:#fff;border:none}
+.btn-secondary{background:rgba(255,255,255,.86)}
+.footer{padding:30px 0 50px;color:var(--muted)}
 .lesson-breadcrumb{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:.95rem}
-.lesson-title{margin:14px 0 10px;font-size:clamp(1.9rem,3vw,3rem);line-height:1.08;letter-spacing:-.05em}
-.lesson-subtitle{margin:0;color:var(--muted);line-height:1.8}
+.lesson-title{font-family:'Fredoka',cursive;letter-spacing:-.03em}
 .switch{
-  appearance:none;width:60px;height:34px;border-radius:999px;background:rgba(124,140,255,.16);position:relative;border:1px solid rgba(124,140,255,.18);cursor:pointer
+  appearance:none;width:60px;height:34px;border-radius:999px;background:rgba(79,124,255,.14);position:relative;border:1px solid rgba(79,124,255,.18);cursor:pointer
 }
-.switch::after{
-  content:"";position:absolute;left:4px;top:4px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 4px 10px rgba(0,0,0,.10);transition:.2s ease
-}
-.switch:checked{background:linear-gradient(135deg,var(--accent-2),var(--accent))}
+.switch::after{content:'';position:absolute;left:4px;top:4px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 4px 10px rgba(0,0,0,.10);transition:.2s ease}
+.switch:checked{background:linear-gradient(135deg,var(--blue),var(--teal))}
 .switch:checked::after{transform:translateX(26px)}
-.note{
-  font-size:.95rem;color:var(--muted);background:rgba(255,255,255,.72);padding:14px 16px;border-radius:18px;border:1px solid var(--line)
-}
 .topbar{display:none}
-@media (max-width:740px){
-  .container{width:min(calc(100% - 18px),var(--max))}
-  .card{border-radius:22px}
-  .btn{width:100%}
-}
+@media (max-width:740px){.container{width:min(calc(100% - 18px),var(--max))}.btn{width:100%}}
