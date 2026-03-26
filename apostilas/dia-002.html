@@ -1,718 +1,1119 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dia 2 · Meta Ads: objetivos, orçamento, posicionamentos e naming</title>
-  <meta name="description" content="Apostila do Dia 2: objetivos, orçamento, posicionamentos e naming em Meta Ads, com profundidade, exemplos, exercícios e revisão ativa.">
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <meta name="description" content="Apostila 2 do plano de estudos do Seiji: objetivos, orçamento, posicionamentos e naming em Meta Ads." />
   <style>
-    :root{
-      --bg:#08111f;
-      --panel:#0f1b31;
-      --panel-2:#101f38;
-      --line:rgba(255,255,255,.1);
-      --text:#eef4ff;
-      --muted:#b8c6e3;
-      --accent:#6ee7b7;
-      --accent-2:#60a5fa;
-      --warn:#fbbf24;
-      --danger:#fb7185;
+    :root {
+      --bg: #0b1020;
+      --panel: #121a31;
+      --panel-2: #17213f;
+      --panel-3: #1f2c52;
+      --text: #e8eefc;
+      --muted: #a8b4d7;
+      --line: rgba(255,255,255,.12);
+      --accent: #7cb3ff;
+      --accent-2: #94f0d5;
+      --danger: #ffb0b0;
+      --warning: #ffd699;
+      --ok: #aef2c1;
+      --shadow: 0 20px 60px rgba(0,0,0,.28);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --max: 1100px;
     }
-    *{box-sizing:border-box}
-    body{margin:0;background:radial-gradient(circle at top left, rgba(96,165,250,.12), transparent 30%), radial-gradient(circle at top right, rgba(110,231,183,.08), transparent 32%), var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-    a{color:inherit;text-decoration:none}
-    .topbar{position:sticky;top:0;z-index:30;backdrop-filter:blur(14px);background:rgba(8,17,31,.75);border-bottom:1px solid var(--line)}
-    .container{width:min(1160px, calc(100% - 32px));margin:0 auto}
-    .topbar .container,.footer .container{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.02em}
-    .brand-badge{width:34px;height:34px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent-2),var(--accent));color:#04111f;font-weight:900}
-    .nav-links{display:flex;gap:12px;flex-wrap:wrap}
-    .nav-link{padding:10px 14px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
-    .nav-link.active,.btn-primary{background:linear-gradient(135deg,var(--accent-2),var(--accent));color:#04111f;border-color:transparent;font-weight:800}
-    .lesson-shell{padding:28px 0 46px}
-    .layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:22px;align-items:start}
-    .card,.aside-card,.module,.hero-card,.matrix-card,.compare-card,.timeline-card,.table-card,.practice-card,.quiz-item,.lang-card,.error-card,.method-card{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:24px}
-    .lesson-card{padding:26px}
-    .aside-card{padding:18px;position:sticky;top:86px}
-    .lesson-breadcrumb{display:flex;flex-wrap:wrap;gap:8px;align-items:center;color:var(--muted);font-size:.94rem}
-    .eyebrow{display:inline-flex;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-size:.8rem;margin-top:16px}
-    .lesson-title{font-size:clamp(2rem,4vw,3.2rem);line-height:1.02;letter-spacing:-.04em;margin:14px 0 10px}
-    .lesson-subtitle{margin:0;color:var(--muted);font-size:1.05rem;line-height:1.8;max-width:70ch}
-    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin-top:22px}
-    .hero-card,.method-card{padding:20px}
-    .hero-card h2,.method-card h3,.module h2,.matrix-card h3,.compare-card h3,.table-card h3,.practice-card h3,.lang-card h3,.error-card h3{margin:0 0 12px}
-    p{line-height:1.8}
-    .hero-card p,.method-card p,.module p,.matrix-card p,.compare-card p,.table-card p,.practice-card p,.lang-card p,.error-card p{margin:0;color:var(--muted)}
-    .pill-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-    .pill{padding:8px 12px;border-radius:999px;border:1px solid var(--line);font-size:.9rem;color:var(--muted);background:rgba(255,255,255,.035)}
-    .two-col,.three-col,.four-col,.lang-grid{display:grid;gap:16px}
-    .two-col{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .three-col{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .four-col{grid-template-columns:repeat(4,minmax(0,1fr))}
-    .module{padding:24px;margin-top:18px}
-    .section-tag{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
-    .module ul,.hero-card ul,.method-card ul,.aside-card ul,.practice-card ul,.compare-card ul,.matrix-card ul,.lang-card ul,.error-card ul{margin:12px 0 0 18px;padding:0}
-    .module li,.hero-card li,.method-card li,.aside-card li,.practice-card li,.compare-card li,.matrix-card li,.lang-card li,.error-card li{margin:8px 0;line-height:1.7;color:var(--muted)}
-    .active-box{padding:16px;border-radius:18px;background:rgba(110,231,183,.08);border:1px solid rgba(110,231,183,.2);margin-top:16px;color:#eafff7}
-    .warning-box{padding:16px;border-radius:18px;background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.22);margin-top:16px;color:#fff5cf}
-    .danger-box{padding:16px;border-radius:18px;background:rgba(251,113,133,.08);border:1px solid rgba(251,113,133,.18);margin-top:16px;color:#ffe3ea}
-    .matrix-card,.compare-card,.timeline-card,.table-card,.practice-card,.lang-card,.error-card{padding:18px}
-    .matrix-card strong,.compare-card strong,.practice-card strong,.lang-card strong,.error-card strong,.aside-card strong{display:block;margin-bottom:8px;color:var(--text)}
-    .decision-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:16px}
-    .decision-box{padding:14px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
-    .decision-box h3{font-size:1rem;line-height:1.25;margin:0 0 10px}
-    .decision-box p{font-size:.95rem}
-    .objective-table{display:grid;gap:12px;margin-top:16px}
-    .objective-row{display:grid;grid-template-columns:180px 1.1fr .95fr;gap:12px;padding:14px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.026)}
-    .objective-row h4{margin:0;font-size:1rem}
-    .objective-row p{margin:0;font-size:.96rem}
-    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
-    .compare-card.good{border-color:rgba(110,231,183,.2)}
-    .compare-card.bad{border-color:rgba(251,113,133,.18)}
-    .timeline{display:grid;gap:12px;margin-top:16px}
-    .timeline-step{display:grid;grid-template-columns:54px 1fr;gap:14px;align-items:start;padding:14px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.03)}
-    .timeline-step .n{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent-2),var(--accent));color:#04111f;font-weight:900}
-    .table-card table{width:100%;border-collapse:collapse;margin-top:12px}
-    .table-card th,.table-card td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left;color:var(--muted);line-height:1.6}
-    .table-card th{color:var(--text);font-size:.92rem}
-    .mini-board{margin-top:16px;padding:16px;border:1px dashed rgba(255,255,255,.18);border-radius:18px;background:rgba(255,255,255,.02)}
-    .mini-board code,.code-block{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.95rem}
-    .code-block{padding:14px 16px;border-radius:18px;background:rgba(6,13,25,.72);border:1px solid var(--line);display:block;overflow:auto;color:#dcfce7;line-height:1.7}
-    .practice-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:16px;margin-top:16px}
-    .checklist{display:grid;gap:10px;margin-top:14px}
-    .checklist label{display:flex;gap:10px;align-items:flex-start;color:var(--muted);line-height:1.6}
-    .quiz-list{display:grid;gap:14px;margin-top:16px}
-    .quiz-item{padding:18px}
-    .quiz-item strong{display:block;margin-bottom:8px}
-    details.answer{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
-    details.answer summary{cursor:pointer;font-weight:800;color:#dff8ff}
-    .lang-grid{grid-template-columns:1fr 1fr;margin-top:16px}
-    .mark-box{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.04);margin-top:20px}
-    .mark-box p{margin:6px 0 0;color:var(--muted)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 18px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);font-weight:700;cursor:pointer}
-    .btn:hover{transform:translateY(-1px)}
-    .btn-secondary{background:rgba(255,255,255,.04)}
-    .action-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
-    .status-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
-    .status-box{padding:14px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
-    .small{font-size:.92rem;color:var(--muted)}
-    .footer{border-top:1px solid var(--line);background:rgba(8,17,31,.75)}
-    .footer .container{justify-content:center;color:var(--muted);text-align:center;padding:16px 0}
-    @media (max-width:1040px){
-      .layout,.hero-grid,.practice-grid,.lang-grid,.compare-grid,.two-col,.three-col,.four-col,.decision-grid,.objective-row,.status-grid{grid-template-columns:1fr}
-      .aside-card{position:relative;top:auto}
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(124,179,255,.16), transparent 32%),
+        radial-gradient(circle at top right, rgba(148,240,213,.09), transparent 24%),
+        linear-gradient(180deg, #08101d 0%, #0b1020 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: .95em;
+      background: rgba(255,255,255,.06);
+      padding: .15rem .35rem;
+      border-radius: 8px;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(16px);
+      background: rgba(8, 12, 24, .82);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar .inner,
+    .page,
+    .footer-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar .inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    .brand-badge {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(124,179,255,.22), rgba(148,240,213,.16));
+      border: 1px solid rgba(124,179,255,.28);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .nav-link,
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 11px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: rgba(255,255,255,.04);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .nav-link:hover,
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(124,179,255,.46);
+      background: rgba(124,179,255,.12);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, rgba(124,179,255,.22), rgba(124,179,255,.12));
+      border-color: rgba(124,179,255,.38);
+    }
+
+    .btn-secondary {
+      background: rgba(148,240,213,.08);
+      border-color: rgba(148,240,213,.25);
+    }
+
+    .btn-disabled,
+    .btn[aria-disabled="true"] {
+      opacity: .55;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .page {
+      padding: 28px 0 72px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(18,26,49,.98), rgba(14,20,38,.98));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main,
+    .hero-side,
+    .section-card,
+    .footer-card {
+      padding: 26px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(124,179,255,.12);
+      border: 1px solid rgba(124,179,255,.24);
+      color: #d9e8ff;
+      font-size: .92rem;
+      font-weight: 700;
+    }
+
+    h1, h2, h3, h4 {
+      line-height: 1.15;
+      margin: 0 0 14px;
+    }
+
+    h1 { font-size: clamp(1.9rem, 3.4vw, 3rem); }
+    h2 { font-size: clamp(1.35rem, 2.2vw, 1.9rem); }
+    h3 { font-size: 1.15rem; }
+    p { margin: 0 0 14px; color: var(--text); }
+    .muted { color: var(--muted); }
+    .small { font-size: .95rem; }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .stat {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--line);
+    }
+
+    .stat-label {
+      font-size: .86rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .stat-value {
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .hero-side {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .outline-list,
+    .check-list,
+    .bullet-list,
+    .number-list {
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    .outline-list li,
+    .check-list li,
+    .bullet-list li,
+    .number-list li { margin-bottom: 10px; }
+
+    .section-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .section-card + .section-card { margin-top: 18px; }
+
+    .mini-grid,
+    .objective-grid,
+    .decision-grid,
+    .exercise-grid,
+    .quiz-grid,
+    .error-grid,
+    .language-grid,
+    .naming-grid,
+    .steps-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .mini-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .objective-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .decision-grid,
+    .exercise-grid,
+    .quiz-grid,
+    .error-grid,
+    .language-grid,
+    .naming-grid,
+    .steps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .tile,
+    .decision-card,
+    .exercise-card,
+    .quiz-card,
+    .error-card,
+    .language-card,
+    .naming-card,
+    .step-card,
+    .callout,
+    .diagram,
+    .example-block {
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      min-width: 0;
+    }
+
+    .tile h3,
+    .decision-card h3,
+    .exercise-card h3,
+    .quiz-card h3,
+    .error-card h3,
+    .language-card h3,
+    .naming-card h3,
+    .step-card h3,
+    .example-block h3,
+    .diagram h3 { margin-bottom: 10px; }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .86rem;
+      font-weight: 700;
+    }
+
+    .diagram {
+      display: grid;
+      gap: 12px;
+    }
+
+    .diagram-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      align-items: start;
+    }
+
+    .diagram-node {
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(124,179,255,.10), rgba(255,255,255,.03));
+    }
+
+    .diagram-arrow {
+      text-align: center;
+      color: var(--muted);
+      font-size: .95rem;
+      font-weight: 700;
+    }
+
+    .decision-card.good { border-color: rgba(174,242,193,.28); }
+    .decision-card.warn { border-color: rgba(255,214,153,.28); }
+    .decision-card.bad { border-color: rgba(255,176,176,.24); }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      padding: 14px 16px;
+    }
+
+    details + details { margin-top: 12px; }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      font-size: 1.25rem;
+      line-height: 1;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    details[open] summary::after { content: "–"; }
+
+    .code-block {
+      margin-top: 10px;
+      background: rgba(10,15,28,.85);
+      border: 1px solid rgba(124,179,255,.18);
+      border-radius: 16px;
+      padding: 14px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .code-block pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      color: #dfe8ff;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: .95rem;
+      line-height: 1.65;
+    }
+
+    .highlight {
+      color: #dff7ee;
+      background: rgba(148,240,213,.10);
+      border: 1px solid rgba(148,240,213,.20);
+      padding: 14px 16px;
+      border-radius: 16px;
+    }
+
+    .warning-box {
+      color: #fff0d8;
+      background: rgba(255,214,153,.09);
+      border: 1px solid rgba(255,214,153,.18);
+      padding: 14px 16px;
+      border-radius: 16px;
+    }
+
+    .danger-box {
+      color: #ffe3e3;
+      background: rgba(255,176,176,.08);
+      border: 1px solid rgba(255,176,176,.18);
+      padding: 14px 16px;
+      border-radius: 16px;
+    }
+
+    .progress-box {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--line);
+    }
+
+    .progress-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,240,213,.24);
+      background: rgba(148,240,213,.08);
+      font-weight: 800;
+      color: #dff7ee;
+    }
+
+    .footer-card {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .footer-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-note {
+      color: var(--muted);
+      font-size: .95rem;
+      max-width: 680px;
+    }
+
+    .sticky-actions {
+      position: fixed;
+      right: 14px;
+      bottom: 14px;
+      z-index: 20;
+      display: none;
+    }
+
+    .floating-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid rgba(124,179,255,.35);
+      background: rgba(18,26,49,.92);
+      box-shadow: var(--shadow);
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .mini-grid,
+      .objective-grid,
+      .decision-grid,
+      .exercise-grid,
+      .quiz-grid,
+      .error-grid,
+      .language-grid,
+      .naming-grid,
+      .steps-grid,
+      .diagram-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .topbar .inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 12px 0;
+      }
+
+      .nav-links {
+        width: 100%;
+      }
+
+      .nav-link,
+      .btn {
+        width: 100%;
+      }
+
+      .page,
+      .footer-inner,
+      .topbar .inner {
+        width: min(var(--max), calc(100% - 24px));
+      }
+
+      .hero-main,
+      .hero-side,
+      .section-card,
+      .footer-card {
+        padding: 20px;
+      }
+
+      .brand-badge { width: 34px; height: 34px; }
+      .sticky-actions { display: block; }
     }
   </style>
 </head>
-<body data-lesson-id="dia-002-meta-ads-objetivos-orcamento-posicionamentos-naming">
+<body id="top">
   <header class="topbar">
-    <div class="container">
+    <div class="inner">
       <a class="brand" href="../index.html">
         <span class="brand-badge">S</span>
         <span>seiji.study</span>
       </a>
-      <nav class="nav-links" aria-label="navegação principal">
+      <nav class="nav-links" aria-label="Navegação principal">
         <a class="nav-link" href="../index.html">Cronograma</a>
         <a class="nav-link" href="dia-001.html">Apostila 1</a>
-        <a class="nav-link active" href="#">Apostila 2</a>
+        <a class="nav-link" aria-current="page" href="dia-002.html">Apostila 2</a>
       </nav>
     </div>
   </header>
 
-  <main class="lesson-shell">
-    <div class="container">
-      <div class="layout">
-        <article class="lesson-card card">
-          <div class="lesson-breadcrumb">
-            <a href="../index.html">Cronograma</a>
-            <span>•</span>
-            <span>Semana 1</span>
-            <span>•</span>
-            <span>Dia 2</span>
+  <main class="page">
+    <section class="hero">
+      <article class="card hero-main">
+        <span class="eyebrow">Semana 1 · Dia 2 · Meta Ads</span>
+        <h1>Objetivos, orçamento, posicionamentos e naming</h1>
+        <p class="muted">Esta aula existe para resolver quatro decisões que parecem técnicas, mas na prática definem a qualidade da conta: o que pedir para a plataforma, como distribuir verba, onde exibir o anúncio e como nomear a estrutura para conseguir operar e analisar sem confusão.</p>
+        <div class="tag-row">
+          <span class="tag">tempo ideal: 75–90 min</span>
+          <span class="tag">método: revisão + exemplo + prática</span>
+          <span class="tag">saída prática: 1 estrutura nomeada</span>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-label">Resultado esperado</div>
+            <div class="stat-value">Justificar configuração, não só clicar</div>
           </div>
-
-          <div class="eyebrow">Apostila · Terça · Meta Ads</div>
-          <h1 class="lesson-title">Objetivos, orçamento, posicionamentos e naming</h1>
-          <p class="lesson-subtitle">Hoje você vai sair do nível “sei apertar botão” e entrar no nível “sei justificar configuração”. Esta aula existe para impedir uma conta bagunçada, sem critério de objetivo, com orçamento distribuído errado, posicionamentos escolhidos por hábito e nomes que não ajudam análise nenhuma.</p>
-
-          <section class="hero-grid">
-            <div class="hero-card">
-              <h2>Resultado esperado</h2>
-              <ul>
-                <li>Escolher o <strong>objetivo de campanha</strong> correto com base em negócio, estágio do funil e qualidade do sinal.</li>
-                <li>Decidir entre <strong>orçamento por campanha</strong> e <strong>orçamento por conjunto</strong> sem cair em regra decorada.</li>
-                <li>Entender quando <strong>Advantage+ Placements</strong> faz sentido e quando o posicionamento manual pode ser útil.</li>
-                <li>Padronizar o <strong>naming</strong> para leitura, escala e auditoria da conta.</li>
-              </ul>
-              <div class="pill-row">
-                <span class="pill">Tempo ideal: 75–90 min</span>
-                <span class="pill">Saída prática: 1 estrutura nomeada</span>
-                <span class="pill">Método: revisão + exemplo + prática</span>
-              </div>
-            </div>
-            <div class="method-card">
-              <h3>Como estudar esta apostila</h3>
-              <p>Não leia em modo passivo. A cada bloco, pare e responda. Primeiro tente recuperar da memória, depois compare com o conteúdo, depois aplique em um caso real. Essa sequência fixa mais do que só “entender enquanto lê”.</p>
-              <ul>
-                <li><strong>Recuperação ativa:</strong> responder antes de ver a explicação.</li>
-                <li><strong>Exemplo resolvido:</strong> observar o raciocínio completo.</li>
-                <li><strong>Prática guiada:</strong> repetir a lógica em um cenário novo.</li>
-                <li><strong>Caderno de erros:</strong> registrar os motivos dos erros, não só o gabarito.</li>
-              </ul>
-            </div>
-          </section>
-
-          <section class="module">
-            <span class="section-tag">1. Revisão da apostila anterior</span>
-            <h2>Recuperação ativa da Aula 1</h2>
-            <p>Antes de seguir, puxe da memória a base da aula anterior. Não consulte a Apostila 1. O objetivo é forçar seu cérebro a reconstruir a lógica de campanha, conjunto, anúncio, funil e públicos.</p>
-            <div class="quiz-list">
-              <div class="quiz-item">
-                <strong>1)</strong>
-                <p>Explique, com suas palavras, a função de campanha, conjunto e anúncio.</p>
-                <details class="answer"><summary>Ver direção de resposta</summary><p>Campanha = intenção macro e objetivo de negócio. Conjunto = hipótese de entrega, com público, verba, agenda e posicionamentos. Anúncio = a mensagem que a pessoa vê, com criativo, copy e CTA.</p></details>
-              </div>
-              <div class="quiz-item">
-                <strong>2)</strong>
-                <p>Por que misturar topo e remarketing no mesmo conjunto costuma piorar a leitura?</p>
-                <details class="answer"><summary>Ver direção de resposta</summary><p>Porque você mistura pessoas em estados mentais diferentes, embaralha sinais e dificulta saber se o resultado veio de descoberta, consideração ou intenção prévia.</p></details>
-              </div>
-              <div class="quiz-item">
-                <strong>3)</strong>
-                <p>Cite dois casos em que criar um novo conjunto faz sentido e dois casos em que não faz.</p>
-                <details class="answer"><summary>Ver direção de resposta</summary><p>Faz sentido quando muda público, geografia, janela, verba ou lógica de entrega. Não faz sentido quando muda só um detalhe criativo ou quando a separação não gera hipótese observável.</p></details>
-              </div>
-              <div class="quiz-item">
-                <strong>4)</strong>
-                <p>Qual é o risco de criar públicos demais sem hipótese clara?</p>
-                <details class="answer"><summary>Ver direção de resposta</summary><p>Fragmentar verba, aumentar sobreposição e transformar a conta em um monte de testes fracos, sem volume suficiente para aprender.</p></details>
-              </div>
-              <div class="quiz-item">
-                <strong>5)</strong>
-                <p>Escreva de cabeça um funil simples para e-commerce com topo, meio, fundo e recorrência.</p>
-                <details class="answer"><summary>Ver direção de resposta</summary><p>Topo = descoberta e primeira exposição. Meio = interesse e prova. Fundo = intenção forte, como carrinho ou view content quente. Recorrência = recompra e novos lançamentos para base compradora.</p></details>
-              </div>
-            </div>
-            <div class="active-box"><strong>Meta da revisão:</strong> se você percebeu que “sabia mais ou menos”, ótimo. É assim que a revisão funciona: ela revela a parte do conteúdo que ainda está fraca.</div>
-          </section>
-
-          <section class="module">
-            <span class="section-tag">2. Objetivos</span>
-            <h2>O objetivo não é detalhe. Ele define o que a plataforma vai perseguir.</h2>
-            <p>Quando você escolhe um objetivo, está dizendo ao sistema que tipo de resultado deve ser priorizado. No modelo simplificado atual da Meta, há seis grandes objetivos: <strong>awareness, traffic, engagement, leads, app promotion e sales</strong>. A escolha errada não é só um “nome ruim”; ela pode jogar a entrega na direção errada desde o começo. citeturn6search1turn3search2</p>
-
-            <div class="decision-grid">
-              <div class="decision-box"><h3>Awareness</h3><p>Serve para alcance e lembrança. Útil quando sua prioridade é ser visto, não vender no curto prazo.</p></div>
-              <div class="decision-box"><h3>Traffic</h3><p>Faz sentido quando o foco é levar gente para destino específico e você ainda não tem sinal forte de conversão.</p></div>
-              <div class="decision-box"><h3>Engagement</h3><p>Priorização de interação: curtidas, comentários, views, mensagens e outros sinais de envolvimento.</p></div>
-              <div class="decision-box"><h3>Leads</h3><p>Voltado à captura de contatos e intenção comercial, especialmente quando o negócio depende de atendimento.</p></div>
-              <div class="decision-box"><h3>App promotion</h3><p>Para instalação e ações ligadas a aplicativo.</p></div>
-              <div class="decision-box"><h3>Sales</h3><p>Foco em compras ou outras conversões valiosas. Normalmente é o centro de e-commerce bem rastreado.</p></div>
-            </div>
-
-            <div class="objective-table">
-              <div class="objective-row">
-                <h4>Awareness</h4>
-                <p><strong>Quando usar:</strong> marca nova, lançamento, expansão de percepção, vídeo amplo, reposicionamento.</p>
-                <p><strong>Quando não usar:</strong> quando você quer compra imediata e já tem tracking e catálogo maduros.</p>
-              </div>
-              <div class="objective-row">
-                <h4>Traffic</h4>
-                <p><strong>Quando usar:</strong> levar audiência para página estratégica, conteúdo, LP, página de categoria, blog ou WhatsApp web.</p>
-                <p><strong>Quando não usar:</strong> quando você na verdade quer venda e tem evento de compra funcional. Tráfego barato pode ser só clique barato.</p>
-              </div>
-              <div class="objective-row">
-                <h4>Engagement</h4>
-                <p><strong>Quando usar:</strong> aquecer público, gerar views de vídeo, iniciar conversas, reforçar prova social.</p>
-                <p><strong>Quando não usar:</strong> quando você cobra da campanha um papel de performance final que ela não foi montada para cumprir.</p>
-              </div>
-              <div class="objective-row">
-                <h4>Leads</h4>
-                <p><strong>Quando usar:</strong> serviços, vendas consultivas, campanhas de formulário, WhatsApp e captação comercial.</p>
-                <p><strong>Quando não usar:</strong> quando o verdadeiro objetivo é compra direta no site e o fluxo está pronto para isso.</p>
-              </div>
-              <div class="objective-row">
-                <h4>Sales</h4>
-                <p><strong>Quando usar:</strong> e-commerce, catálogo, remarketing quente, campanhas com sinal de compra robusto.</p>
-                <p><strong>Quando não usar:</strong> quando o site ou o tracking estão quebrados. Sem sinal confiável, a campanha aprende torto.</p>
-              </div>
-            </div>
-
-            <div class="warning-box"><strong>Regra prática:</strong> não escolha objetivo pelo que você gostaria que acontecesse. Escolha pelo que a conta consegue perseguir com qualidade hoje.</div>
-
-            <div class="timeline">
-              <div class="timeline-step"><div class="n">1</div><div><strong>Comece pelo negócio</strong><p>Você quer descoberta, clique, conversa, lead ou venda?</p></div></div>
-              <div class="timeline-step"><div class="n">2</div><div><strong>Cheque o sinal</strong><p>Seu tracking está bom? O evento de compra dispara? Há volume mínimo de conversão?</p></div></div>
-              <div class="timeline-step"><div class="n">3</div><div><strong>Olhe o estágio do funil</strong><p>Público frio geralmente pede uma construção diferente de carrinho abandonado ou recompra.</p></div></div>
-              <div class="timeline-step"><div class="n">4</div><div><strong>Escolha o objetivo que casa com esse cenário</strong><p>O objetivo certo ajuda a entrega. O errado mascara leitura e cria expectativa falsa.</p></div></div>
-            </div>
-          </section>
-
-          <section class="module">
-            <span class="section-tag">3. Orçamento</span>
-            <h2>Orçamento por campanha vs. orçamento por conjunto</h2>
-            <p>Na estrutura da Meta, você pode trabalhar com orçamento no nível da campanha ou no nível do conjunto. No nível de campanha, a plataforma distribui o orçamento entre os conjuntos; no nível de conjunto, cada conjunto segura sua verba própria. A própria documentação da Meta diferencia esses caminhos: há orçamento no nível do conjunto e também o mecanismo de <em>Advantage campaign budget</em>, que otimiza a distribuição do orçamento da campanha entre os conjuntos. citeturn5search3turn5search21turn5search6</p>
-
-            <div class="compare-grid">
-              <div class="compare-card good">
-                <h3>Quando orçamento por campanha faz sentido</h3>
-                <ul>
-                  <li>Você está comparando conjuntos parecidos e quer que a plataforma direcione mais verba para os melhores.</li>
-                  <li>Já existe certa estabilidade e seu foco é eficiência global da campanha.</li>
-                  <li>Você quer menos microgerenciamento manual.</li>
-                </ul>
-              </div>
-              <div class="compare-card bad">
-                <h3>Quando orçamento por campanha atrapalha</h3>
-                <ul>
-                  <li>Você quer isolar teste entre públicos muito diferentes.</li>
-                  <li>Você precisa garantir verba mínima para uma hipótese específica.</li>
-                  <li>Está em fase de aprendizado e quer observar conjuntos com mais controle.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="compare-grid">
-              <div class="compare-card good">
-                <h3>Quando orçamento por conjunto faz sentido</h3>
-                <ul>
-                  <li>Você quer teste controlado entre hipóteses diferentes.</li>
-                  <li>Precisa garantir gasto mínimo em cada público ou janela.</li>
-                  <li>Está validando se a estrutura em si presta antes de escalar.</li>
-                </ul>
-              </div>
-              <div class="compare-card bad">
-                <h3>Quando orçamento por conjunto vira armadilha</h3>
-                <ul>
-                  <li>Você pulveriza verba em muitos conjuntos fracos.</li>
-                  <li>Gasta tempo demais realocando manualmente o orçamento.</li>
-                  <li>Insiste em controle total mesmo quando a campanha já mostrou quais conjuntos vencem.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="table-card">
-              <h3>Decisão rápida: use esta tabela</h3>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Cenário</th>
-                    <th>Melhor ponto de partida</th>
-                    <th>Por quê</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Teste de 3 públicos frios bem diferentes</td>
-                    <td>Orçamento por conjunto</td>
-                    <td>Você quer leitura limpa e verba garantida para cada hipótese.</td>
-                  </tr>
-                  <tr>
-                    <td>Escala de prospecting já validado</td>
-                    <td>Orçamento por campanha</td>
-                    <td>A plataforma pode puxar mais verba para o conjunto que estiver respondendo melhor.</td>
-                  </tr>
-                  <tr>
-                    <td>Remarketing com janelas distintas</td>
-                    <td>Depende do volume</td>
-                    <td>Se o volume é baixo, simplificar ajuda. Se as janelas têm comportamentos muito diferentes, separar pode valer.</td>
-                  </tr>
-                  <tr>
-                    <td>Conta pequena com verba limitada</td>
-                    <td>Simplificação primeiro</td>
-                    <td>Antes de discutir CBO ou ABO, corte excesso de estrutura.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div class="two-col" style="margin-top:16px">
-              <div class="matrix-card">
-                <h3>Diário vs. vitalício</h3>
-                <p><strong>Diário</strong> é melhor quando você quer mais flexibilidade operacional e leitura contínua. <strong>Vitalício</strong> é útil quando a campanha tem data fechada, calendário definido e distribuição planejada ao longo do período.</p>
-                <ul>
-                  <li>Diário: promo sempre ativa, teste contínuo, conta viva.</li>
-                  <li>Vitalício: ação com data, evento, lançamento ou campanha sazonal definida.</li>
-                </ul>
-              </div>
-              <div class="matrix-card">
-                <h3>Erro clássico de iniciante</h3>
-                <p>Ficar obcecado com “o tipo certo de orçamento” sem notar que o problema real é outro: verba pequena demais para a quantidade de conjuntos, público ruim, criativo fraco ou tracking falho.</p>
-                <div class="danger-box"><strong>Resumo brutal:</strong> orçamento não salva arquitetura ruim.</div>
-              </div>
-            </div>
-
-            <div class="mini-board">
-              <strong>Exemplo de raciocínio</strong>
-              <p>Você tem R$ 180/dia para prospecting em moda feminina e quer testar 3 hipóteses: broad, interesse e lookalike. Se o objetivo é comparação justa, comece com orçamento por conjunto em R$ 60/dia cada. Se após alguns dias broad e lookalike dominarem e o interesse perder força, a próxima fase pode migrar para orçamento por campanha para deixar a verba correr melhor entre os vencedores.</p>
-            </div>
-          </section>
-
-          <section class="module">
-            <span class="section-tag">4. Posicionamentos</span>
-            <h2>Posicionamento é lugar de exibição. Não é detalhe cosmético.</h2>
-            <p>A Meta define posicionamentos como os lugares onde os anúncios podem rodar dentro e fora das tecnologias Meta, como Facebook, Instagram, Messenger, WhatsApp e Audience Network. A documentação também descreve o uso de Advantage+ Placements como forma de encontrar oportunidades de menor custo entre posicionamentos disponíveis. citeturn3search11turn3search12turn5search1</p>
-
-            <div class="compare-grid">
-              <div class="compare-card good">
-                <h3>Advantage+ Placements: quando começar por aqui</h3>
-                <ul>
-                  <li>Você quer dar espaço para a plataforma encontrar entrega mais barata.</li>
-                  <li>Seu criativo se adapta bem a múltiplos posicionamentos.</li>
-                  <li>Você ainda não tem uma hipótese forte para restringir manualmente.</li>
-                </ul>
-              </div>
-              <div class="compare-card bad">
-                <h3>Posicionamento manual: quando pode fazer sentido</h3>
-                <ul>
-                  <li>O criativo foi desenhado especificamente para um formato.</li>
-                  <li>Você já testou e encontrou clara perda de qualidade em certos placements.</li>
-                  <li>Há restrição operacional, criativa ou de análise que precisa ser isolada.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="three-col" style="margin-top:16px">
-              <div class="matrix-card">
-                <h3>Feed</h3>
-                <p>Mais espaço de texto e leitura. Bom para criativos estáticos, carrossel, prova social e oferta mais explicada.</p>
-              </div>
-              <div class="matrix-card">
-                <h3>Stories / Reels</h3>
-                <p>Ritmo rápido, tela cheia, gancho imediato. Pede vídeo ou imagem pensada para vertical e captação rápida.</p>
-              </div>
-              <div class="matrix-card">
-                <h3>Audience Network / outros</h3>
-                <p>Podem gerar volume, mas nem sempre qualidade. Não corte por dogma; corte por diagnóstico.</p>
-              </div>
-            </div>
-
-            <div class="table-card">
-              <h3>Checklist de decisão para posicionamentos</h3>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Pergunta</th>
-                    <th>Se a resposta for “sim”</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Seu criativo foi feito especificamente para vertical 9:16?</td>
-                    <td>Stories/Reels merecem atenção especial ou criativo separado.</td>
-                  </tr>
-                  <tr>
-                    <td>Você já observou muito clique fraco vindo de um placement específico?</td>
-                    <td>Vale isolar o teste e ver se a remoção melhora qualidade, não só métrica de superfície.</td>
-                  </tr>
-                  <tr>
-                    <td>O anúncio perde legibilidade fora do feed?</td>
-                    <td>Adapte assets por placement ou limite manualmente até ter criativo correto.</td>
-                  </tr>
-                  <tr>
-                    <td>Você não tem diagnóstico nenhum ainda?</td>
-                    <td>Comece amplo, colete dados e restrinja só com motivo.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div class="warning-box"><strong>Posicionamento não se escolhe por gosto.</strong> Se você corta placement só porque “sempre ouvi que é ruim”, está terceirizando seu raciocínio.</div>
-          </section>
-
-          <section class="module">
-            <span class="section-tag">5. Naming</span>
-            <h2>Nome ruim custa dinheiro porque atrapalha análise e operação</h2>
-            <p>Naming não é perfumaria. Em conta com volume, um bom nome reduz erro humano, acelera leitura, melhora auditoria e diminui retrabalho. O nome precisa responder rapidamente: <strong>o que é</strong>, <strong>em que nível está</strong>, <strong>qual hipótese está sendo testada</strong> e <strong>qual versão é essa</strong>.</p>
-
-            <div class="two-col">
-              <div class="matrix-card">
-                <h3>Princípios de um bom naming</h3>
-                <ul>
-                  <li>Padronização de caixa: tudo em minúsculas.</li>
-                  <li>Sem espaços soltos e sem caracteres aleatórios.</li>
-                  <li>Nível identificado claramente: campanha, conjunto, anúncio.</li>
-                  <li>Informação útil para leitura e filtro.</li>
-                  <li>Versão quando houver repetição ou iteração.</li>
-                </ul>
-              </div>
-              <div class="matrix-card">
-                <h3>O que evitar</h3>
-                <ul>
-                  <li>Nome bonito, mas sem função.</li>
-                  <li>Campanha com texto gigante e sem hierarquia.</li>
-                  <li>Abreviação que só você entende hoje e esquece amanhã.</li>
-                  <li>Misturar funil, objetivo, público e criativo sem ordem fixa.</li>
-                </ul>
-              </div>
-            </div>
-
-            <p style="margin-top:16px">Como seu padrão já foi definido para este projeto, o ideal é manter:</p>
-            <div class="code-block">campanha: [wd][01][vendas][topo] | broad_25_54
-conjunto: [p1][broad][auto] | 7d | vestidos
-anuncio: [a1][vid] | hook_lookbook_v1</div>
-
-            <div class="table-card">
-              <h3>Leitura do exemplo</h3>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Parte</th>
-                    <th>Função</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>[wd][01][vendas][topo]</td>
-                    <td>Agência/projeto, posição no funil, objetivo e estágio do funil.</td>
-                  </tr>
-                  <tr>
-                    <td>broad_25_54</td>
-                    <td>Resumo curto da hipótese de público.</td>
-                  </tr>
-                  <tr>
-                    <td>[p1][broad][auto]</td>
-                    <td>Hierarquia do público, tipo de audiência e posicionamento.</td>
-                  </tr>
-                  <tr>
-                    <td>7d | vestidos</td>
-                    <td>Janela, tema, categoria ou recorte estratégico.</td>
-                  </tr>
-                  <tr>
-                    <td>[a1][vid] | hook_lookbook_v1</td>
-                    <td>Ordem do criativo, formato e versão.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div class="mini-board">
-              <strong>Teste rápido:</strong>
-              <p>Se alguém abrisse sua conta hoje sem falar com você, conseguiria entender a lógica dos nomes em 10 minutos? Se a resposta for não, seu naming está ruim.</p>
-            </div>
-          </section>
-
-          <section class="module">
-            <span class="section-tag">6. Exemplo guiado</span>
-            <h2>Montando a lógica de uma campanha de e-commerce de moda</h2>
-            <p>Vamos aplicar tudo em um cenário próximo da sua rotina: uma marca de moda feminina quer vender coleção nova no site, tem pixel funcional, catálogo ativo e verba de R$ 240/dia.</p>
-
-            <div class="practice-grid">
-              <div class="practice-card">
-                <h3>Passo a passo do raciocínio</h3>
-                <div class="timeline">
-                  <div class="timeline-step"><div class="n">1</div><div><strong>Objetivo</strong><p>Como o foco principal é compra no site e o tracking está funcional, o objetivo-base tende a ser <strong>sales</strong>.</p></div></div>
-                  <div class="timeline-step"><div class="n">2</div><div><strong>Estrutura</strong><p>Separar prospecting de remarketing. Não misturar topo com carrinho.</p></div></div>
-                  <div class="timeline-step"><div class="n">3</div><div><strong>Orçamento</strong><p>Se a intenção for testar 3 hipóteses frias em paralelo, começar com orçamento por conjunto pode dar leitura mais limpa. Depois, se dois grupos se provarem fortes, considerar orçamento por campanha na fase de escala.</p></div></div>
-                  <div class="timeline-step"><div class="n">4</div><div><strong>Posicionamentos</strong><p>Começar com Advantage+ Placements se os criativos estiverem adaptados. Se a peça for claramente pensada para feed ou vertical, criar versão própria ou isolar manualmente.</p></div></div>
-                  <div class="timeline-step"><div class="n">5</div><div><strong>Naming</strong><p>Nomear de forma que qualquer leitura posterior revele objetivo, funil, público, placement e versão criativa.</p></div></div>
-                </div>
-              </div>
-              <div class="practice-card">
-                <h3>Estrutura sugerida</h3>
-                <div class="code-block">campanha
-[wd][01][vendas][topo] | colecao_fw26
-
-conjuntos
-[p1][broad][auto] | 25_54 | colecao
-[p2][interesse_moda][auto] | 25_54 | colecao
-[p3][lal_1p][auto] | 25_54 | colecao
-
-anuncios
-[a1][vid] | hook_colecao_v1
-[a2][img] | lookbook_v1
-[a3][car] | destaques_v1</div>
-                <div class="active-box"><strong>Por que isso presta?</strong> Porque existe uma hipótese clara por conjunto, um objetivo coerente com o negócio e uma nomenclatura legível.</div>
-              </div>
-            </div>
-          </section>
-
-          <section class="module">
-            <span class="section-tag">7. Exercícios</span>
-            <h2>Agora você pratica</h2>
-            <p>Faça sem consultar a resposta primeiro. O ganho real da aula vem aqui.</p>
-
-            <div class="quiz-list">
-              <div class="quiz-item">
-                <strong>Exercício 1 · Escolha do objetivo</strong>
-                <p>Uma clínica de fisioterapia domiciliar quer gerar contatos qualificados pelo WhatsApp para avaliação inicial. O site é simples, sem estrutura boa de conversão. Qual objetivo você escolheria primeiro e por quê?</p>
-                <details class="answer"><summary>Ver resposta comentada</summary><p><strong>Leads</strong> ou <strong>engagement</strong> voltado a mensagens pode ser o melhor ponto de partida, dependendo do fluxo exato, porque o negócio depende de contato comercial e o site não oferece sinal forte de conversão final.</p></details>
-              </div>
-
-              <div class="quiz-item">
-                <strong>Exercício 2 · Orçamento</strong>
-                <p>Você tem R$ 150/dia e quer testar 3 públicos frios muito diferentes. Começaria com orçamento por campanha ou por conjunto? Justifique.</p>
-                <details class="answer"><summary>Ver resposta comentada</summary><p>Na fase de teste, <strong>por conjunto</strong> costuma ser mais defensável, porque garante verba mínima para cada hipótese e evita um conjunto matar o outro cedo demais sem leitura suficiente.</p></details>
-              </div>
-
-              <div class="quiz-item">
-                <strong>Exercício 3 · Posicionamentos</strong>
-                <p>Seu criativo foi editado só em formato quadrado e tem muito texto pequeno. Você manteria Advantage+ Placements sem adaptação? O que faria?</p>
-                <details class="answer"><summary>Ver resposta comentada</summary><p>Não manteria cegamente. Eu adaptaria o criativo para vertical ou isolaria placements onde a peça continua legível. O problema não é o placement em si, mas a inadequação do asset.</p></details>
-              </div>
-
-              <div class="quiz-item">
-                <strong>Exercício 4 · Naming</strong>
-                <p>Crie um naming para uma campanha de leads, fundo de funil, com público de visitantes 30 dias, placement manual feed e stories, usando vídeo versão 2.</p>
-                <details class="answer"><summary>Ver uma possibilidade</summary><p><code>[wd][03][leads][fundo] | visitantes_30d</code><br><code>[p1][visitantes_30d][feed_stories] | 30d | remarketing</code><br><code>[a1][vid] | oferta_v2</code></p></details>
-              </div>
-            </div>
-          </section>
-
-          <section class="module">
-            <span class="section-tag">8. Mini quiz</span>
-            <h2>Teste de fixação</h2>
-            <div class="quiz-list">
-              <div class="quiz-item">
-                <strong>1)</strong>
-                <p>Qual é a pergunta central que define o objetivo de campanha?</p>
-                <details class="answer"><summary>Resposta</summary><p>“Qual resultado de negócio eu quero que a plataforma priorize?”</p></details>
-              </div>
-              <div class="quiz-item">
-                <strong>2)</strong>
-                <p>Quando o orçamento por campanha costuma ser mais forte?</p>
-                <details class="answer"><summary>Resposta</summary><p>Quando as hipóteses já estão razoavelmente validadas e você quer eficiência global entre conjuntos parecidos.</p></details>
-              </div>
-              <div class="quiz-item">
-                <strong>3)</strong>
-                <p>Qual é o erro de cortar placements sem diagnóstico?</p>
-                <details class="answer"><summary>Resposta</summary><p>Trocar análise por hábito, reduzindo o espaço de entrega sem prova de que aquilo melhora resultado real.</p></details>
-              </div>
-              <div class="quiz-item">
-                <strong>4)</strong>
-                <p>O que um bom naming precisa revelar rapidamente?</p>
-                <details class="answer"><summary>Resposta</summary><p>Nível da estrutura, objetivo, estágio do funil, hipótese de público ou recorte estratégico, placement e versão criativa.</p></details>
-              </div>
-              <div class="quiz-item">
-                <strong>5)</strong>
-                <p>Complete a frase: orçamento não salva __________.</p>
-                <details class="answer"><summary>Resposta</summary><p>Arquitetura ruim.</p></details>
-              </div>
-            </div>
-          </section>
-
-          <section class="module">
-            <span class="section-tag">9. Inglês e japonês</span>
-            <h2>Microbloco diário de idioma</h2>
-            <div class="lang-grid">
-              <div class="lang-card">
-                <h3>Inglês aplicado ao trabalho</h3>
-                <p>Leia em voz alta e traduza sem olhar.</p>
-                <ul>
-                  <li><strong>Campaign objective</strong> = objetivo de campanha</li>
-                  <li><strong>Ad set budget</strong> = orçamento por conjunto</li>
-                  <li><strong>Placements</strong> = posicionamentos</li>
-                  <li><strong>Naming convention</strong> = convenção de nomenclatura</li>
-                </ul>
-                <div class="mini-board">
-                  <strong>Frase da aula</strong>
-                  <p><em>I choose the objective based on the business goal, not on guesswork.</em><br>Eu escolho o objetivo com base no objetivo de negócio, não em achismo.</p>
-                </div>
-              </div>
-              <div class="lang-card">
-                <h3>Japonês básico</h3>
-                <p>Foco em constância, não em volume.</p>
-                <ul>
-                  <li><strong>もくひょう</strong> (mokuhyou) = objetivo</li>
-                  <li><strong>よさん</strong> (yosan) = orçamento</li>
-                  <li><strong>こうこく</strong> (koukoku) = anúncio / publicidade</li>
-                  <li><strong>なまえ</strong> (namae) = nome</li>
-                </ul>
-                <div class="mini-board">
-                  <strong>Frase da aula</strong>
-                  <p><em>もくひょうを まちがえると、けっかも ずれる。</em><br>Se você erra o objetivo, o resultado também se desvia.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="module">
-            <span class="section-tag">10. Caderno de erros</span>
-            <h2>Os 5 erros que mais destroem esta aula</h2>
-            <div class="three-col">
-              <div class="error-card"><h3>Erro 1</h3><p>Escolher objetivo pelo resultado desejado no ego, não pela estrutura real da conta.</p></div>
-              <div class="error-card"><h3>Erro 2</h3><p>Discutir CBO vs ABO quando a verba está pulverizada em estrutura ruim.</p></div>
-              <div class="error-card"><h3>Erro 3</h3><p>Cortar placements por crença, sem olhar qualidade e adaptação do criativo.</p></div>
-              <div class="error-card"><h3>Erro 4</h3><p>Usar naming genérico e depois sofrer para analisar ou escalar.</p></div>
-              <div class="error-card"><h3>Erro 5</h3><p>Copiar configuração de outra conta sem perguntar: “qual hipótese isso atende aqui?”</p></div>
-            </div>
-          </section>
-
-          <div class="mark-box">
-            <div>
-              <strong>Concluir esta apostila</strong>
-              <p>Marque como concluída quando terminar os exercícios e o mini quiz sem consulta.</p>
-            </div>
-            <button class="btn btn-primary" id="markComplete">Marcar como concluída</button>
+          <div class="stat">
+            <div class="stat-label">Pergunta central</div>
+            <div class="stat-value">Qual resultado de negócio a conta consegue perseguir hoje?</div>
           </div>
-
-          <div class="action-row">
-            <a class="btn btn-secondary" href="../index.html">Retornar ao cronograma</a>
-            <a class="btn btn-primary" href="dia-003.html">Próxima apostila</a>
+          <div class="stat">
+            <div class="stat-label">Erro que a aula combate</div>
+            <div class="stat-value">Conta bagunçada, verba fragmentada e naming inútil</div>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <aside class="aside-card">
-          <strong>Resumo executivo</strong>
-          <p class="small">Esta aula resolve quatro decisões que parecem técnicas, mas são estratégicas: o que pedir para a plataforma, como distribuir verba, onde exibir o anúncio e como nomear a estrutura.</p>
+      <aside class="card hero-side">
+        <div>
+          <h2>Como estudar esta apostila</h2>
+          <p class="muted small">Não leia em modo passivo. Primeiro responda. Depois compare. Só então aplique no seu contexto. Essa sequência obriga seu cérebro a reconstruir a lógica, em vez de só reconhecer texto bonito.</p>
+        </div>
+        <ul class="outline-list muted small">
+          <li><strong>Recuperação ativa:</strong> tentar lembrar antes de ver.</li>
+          <li><strong>Exemplo resolvido:</strong> observar o raciocínio completo.</li>
+          <li><strong>Prática guiada:</strong> repetir a lógica em cenário novo.</li>
+          <li><strong>Caderno de erros:</strong> registrar por que errou.</li>
+        </ul>
+        <div class="highlight small">
+          Hoje você deve sair da aula conseguindo responder: <strong>por que escolhi esse objetivo, essa verba, esse placement e esse nome?</strong>
+        </div>
+      </aside>
+    </section>
 
-          <div class="status-grid">
-            <div class="status-box"><strong>Saída prática</strong><span class="small">1 estrutura coerente e nomeada</span></div>
-            <div class="status-box"><strong>Nível</strong><span class="small">Fundação com profundidade</span></div>
-          </div>
+    <section class="section-card card" id="revisao">
+      <h2>1. Revisão ativa da Apostila 1</h2>
+      <p class="muted">Antes de avançar, puxe da memória a base da aula anterior. Não consulte a Apostila 1. O objetivo aqui é forçar reconstrução mental da hierarquia campanha → conjunto → anúncio e da lógica de funil e públicos.</p>
+      <details>
+        <summary>1) Explique, com suas palavras, a função de campanha, conjunto e anúncio.</summary>
+        <p><strong>Direção de resposta:</strong> campanha é a intenção macro e o objetivo de negócio; conjunto é a hipótese de entrega, com público, verba, agenda e posicionamentos; anúncio é a mensagem que a pessoa vê, com criativo, copy e CTA.</p>
+      </details>
+      <details>
+        <summary>2) Por que misturar topo e remarketing no mesmo conjunto costuma piorar a leitura?</summary>
+        <p>Porque você mistura pessoas em estados mentais diferentes, embaralha sinais e perde capacidade de entender se o resultado veio de descoberta, consideração ou intenção prévia.</p>
+      </details>
+      <details>
+        <summary>3) Cite dois casos em que criar novo conjunto faz sentido e dois em que não faz.</summary>
+        <p>Faz sentido quando muda público, geografia, verba, janela ou lógica de entrega. Não faz sentido quando muda só um detalhe criativo ou quando a separação não gera hipótese observável.</p>
+      </details>
+      <details>
+        <summary>4) Qual é o risco de criar públicos demais sem hipótese clara?</summary>
+        <p>Fragmentar verba, aumentar sobreposição e transformar a conta em um monte de testes fracos, sem volume suficiente para aprender.</p>
+      </details>
+      <details>
+        <summary>5) Escreva de cabeça um funil simples para e-commerce.</summary>
+        <p>Topo = descoberta e primeira exposição. Meio = interesse e prova. Fundo = intenção forte. Recorrência = recompra e base compradora.</p>
+      </details>
+      <p class="warning-box small">Se você percebeu que “sabia mais ou menos”, ótimo. É exatamente isso que a revisão ativa precisa revelar: a parte do conteúdo que ainda está fraca.</p>
+    </section>
 
-          <ul>
-            <li>Objetivo deve seguir negócio + funil + sinal.</li>
-            <li>Orçamento depende da fase: teste ou escala.</li>
-            <li>Placement sem diagnóstico é chute.</li>
-            <li>Naming ruim piora operação e análise.</li>
-          </ul>
-
-          <div class="checklist">
-            <label><input type="checkbox"> Respondi a revisão sem consultar a aula 1.</label>
-            <label><input type="checkbox"> Consigo explicar quando usar orçamento por campanha.</label>
-            <label><input type="checkbox"> Consigo defender ou rejeitar placement manual com motivo.</label>
-            <label><input type="checkbox"> Escrevi ao menos 1 naming completo.</label>
-          </div>
-
-          <div class="warning-box"><strong>Missão de hoje:</strong> abrir uma conta real e identificar uma decisão de objetivo, orçamento, placement ou naming que hoje está sendo tomada no automático.</div>
-        </aside>
+    <section class="section-card card" id="objetivos">
+      <h2>2. Objetivos: o que a plataforma vai perseguir</h2>
+      <p>Na Meta, escolher o objetivo não é detalhe de interface. É definir qual tipo de resultado a entrega vai priorizar. Se você escolhe um objetivo incompatível com a realidade da conta, a plataforma otimiza na direção errada desde o início. A documentação oficial da Meta organiza a estrutura atual em seis objetivos amplos: <strong>awareness, traffic, engagement, leads, app promotion e sales</strong>. citeturn0view0</p>
+      <div class="objective-grid">
+        <div class="tile">
+          <h3>Awareness</h3>
+          <p class="muted small">Use quando a prioridade é alcance e lembrança. Marca nova, vídeo amplo, reposicionamento, expansão de percepção.</p>
+          <p class="danger-box small"><strong>Não use</strong> quando você quer compra imediata e já tem tracking robusto.</p>
+        </div>
+        <div class="tile">
+          <h3>Traffic</h3>
+          <p class="muted small">Serve para levar pessoas a um destino específico quando você ainda não tem sinal forte de conversão.</p>
+          <p class="danger-box small"><strong>Não use</strong> como substituto de vendas só porque o clique está barato.</p>
+        </div>
+        <div class="tile">
+          <h3>Engagement</h3>
+          <p class="muted small">Bom para aquecer, ganhar views, mensagens e prova social. Útil quando o papel da campanha é envolvimento.</p>
+          <p class="danger-box small"><strong>Não use</strong> quando você vai cobrar performance final que ela não foi feita para entregar.</p>
+        </div>
+        <div class="tile">
+          <h3>Leads</h3>
+          <p class="muted small">Faz sentido para serviços, WhatsApp, formulário e negócios consultivos em que o contato é parte central da venda.</p>
+          <p class="danger-box small"><strong>Não use</strong> se o fluxo ideal já é compra direta no site.</p>
+        </div>
+        <div class="tile">
+          <h3>App promotion</h3>
+          <p class="muted small">Voltado a instalação e ações ligadas a aplicativo. Só faz sentido quando o app é o destino real da campanha.</p>
+          <p class="danger-box small"><strong>Não use</strong> por conveniência quando o negócio principal não é o app.</p>
+        </div>
+        <div class="tile">
+          <h3>Sales</h3>
+          <p class="muted small">Centro de e-commerce e conversões valiosas quando site, pixel e evento de compra estão funcionando bem.</p>
+          <p class="danger-box small"><strong>Não use</strong> se o tracking está falho, porque o sistema aprende torto.</p>
+        </div>
       </div>
-    </div>
+
+      <div class="diagram" style="margin-top:18px;">
+        <h3>Raciocínio correto para escolher objetivo</h3>
+        <div class="diagram-row">
+          <div class="diagram-node">
+            <strong>1. Comece pelo negócio</strong>
+            <p class="muted small">Você quer descoberta, clique, conversa, lead ou venda?</p>
+          </div>
+          <div class="diagram-node">
+            <strong>2. Cheque o sinal</strong>
+            <p class="muted small">O evento de compra dispara? O formulário é rastreado? Há volume mínimo?</p>
+          </div>
+          <div class="diagram-node">
+            <strong>3. Olhe o estágio do funil</strong>
+            <p class="muted small">Público frio pede construção diferente de carrinho ou recompra.</p>
+          </div>
+        </div>
+        <div class="diagram-arrow">negócio + sinal + funil = objetivo compatível</div>
+      </div>
+
+      <div class="highlight">
+        <strong>Regra prática:</strong> não escolha objetivo pelo que você gostaria que acontecesse. Escolha pelo que a conta consegue perseguir com qualidade hoje.
+      </div>
+    </section>
+
+    <section class="section-card card" id="orcamento">
+      <h2>3. Orçamento: controle versus eficiência</h2>
+      <p>Na Meta, você pode trabalhar com orçamento no nível da campanha ou no nível do conjunto. No primeiro caso, a própria campanha redistribui verba entre conjuntos; no segundo, cada conjunto mantém sua verba própria. O próprio material da Meta diferencia esses caminhos, incluindo o uso de <em>Advantage campaign budget</em> para distribuir orçamento no nível da campanha. citeturn0view0</p>
+
+      <div class="mini-grid">
+        <div class="callout">
+          <h3>Orçamento por campanha</h3>
+          <ul class="check-list muted small">
+            <li>Útil quando os conjuntos são parecidos e você busca eficiência global.</li>
+            <li>Reduz microgerenciamento manual.</li>
+            <li>Faz mais sentido depois que as hipóteses já mostraram algum valor.</li>
+          </ul>
+        </div>
+        <div class="callout">
+          <h3>Orçamento por conjunto</h3>
+          <ul class="check-list muted small">
+            <li>Útil em testes controlados entre hipóteses diferentes.</li>
+            <li>Garante verba mínima para cada público ou janela.</li>
+            <li>Ajuda quando você ainda está validando a estrutura.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 style="margin-top:20px;">Decisão rápida sem tabela quebrando no celular</h3>
+      <div class="decision-grid">
+        <div class="decision-card good">
+          <h3>Teste de 3 públicos frios bem diferentes</h3>
+          <p><strong>Melhor ponto de partida:</strong> orçamento por conjunto.</p>
+          <p class="muted small"><strong>Por quê:</strong> você quer leitura limpa e verba garantida para cada hipótese, sem um conjunto matar o outro cedo demais.</p>
+        </div>
+        <div class="decision-card good">
+          <h3>Escala de prospecting já validado</h3>
+          <p><strong>Melhor ponto de partida:</strong> orçamento por campanha.</p>
+          <p class="muted small"><strong>Por quê:</strong> a plataforma pode puxar mais verba para o conjunto que estiver respondendo melhor.</p>
+        </div>
+        <div class="decision-card warn">
+          <h3>Remarketing com janelas distintas</h3>
+          <p><strong>Melhor ponto de partida:</strong> depende do volume.</p>
+          <p class="muted small"><strong>Por quê:</strong> com volume baixo, simplificar ajuda. Se as janelas se comportam de forma muito diferente, separar pode valer.</p>
+        </div>
+        <div class="decision-card bad">
+          <h3>Conta pequena com verba limitada</h3>
+          <p><strong>Melhor ponto de partida:</strong> simplificação primeiro.</p>
+          <p class="muted small"><strong>Por quê:</strong> antes de discutir CBO ou ABO, corte excesso de estrutura. O maior erro é pulverizar verba em muitos conjuntos fracos.</p>
+        </div>
+      </div>
+
+      <div class="steps-grid" style="margin-top:18px;">
+        <div class="step-card">
+          <h3>Diário</h3>
+          <p class="muted small">Melhor para flexibilidade operacional, teste contínuo, conta viva e promoções sempre ativas.</p>
+        </div>
+        <div class="step-card">
+          <h3>Vitalício</h3>
+          <p class="muted small">Melhor para ações com data fechada, calendário definido e distribuição planejada ao longo do período.</p>
+        </div>
+      </div>
+
+      <div class="warning-box" style="margin-top:18px;">
+        <strong>Resumo brutal:</strong> orçamento não salva arquitetura ruim. Se a verba está pequena demais para a quantidade de conjuntos, o problema principal não é CBO versus ABO. É excesso de estrutura, hipótese fraca, criativo ruim ou tracking falho.
+      </div>
+
+      <div class="example-block" style="margin-top:18px;">
+        <h3>Exemplo de raciocínio</h3>
+        <p>Você tem <strong>R$ 180/dia</strong> para prospecting em moda feminina e quer testar <strong>3 hipóteses</strong>: broad, interesse e lookalike.</p>
+        <ol class="number-list muted small">
+          <li>Se o objetivo é <strong>comparação justa</strong>, comece com <strong>orçamento por conjunto</strong>: R$ 60/dia cada.</li>
+          <li>Depois de alguns dias, se broad e lookalike dominarem e interesse perder força, migre para <strong>orçamento por campanha</strong> na fase de escala.</li>
+          <li>Essa transição faz sentido porque você saiu da fase de <strong>validação</strong> e entrou na fase de <strong>eficiência</strong>.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section-card card" id="placements">
+      <h2>4. Posicionamentos: onde o anúncio vai aparecer</h2>
+      <p>A Meta trata posicionamentos como os lugares de exibição dos anúncios dentro e fora das tecnologias Meta, incluindo Facebook, Instagram, Messenger, WhatsApp e Audience Network. A própria documentação também descreve <strong>Advantage+ Placements</strong> como forma de encontrar oportunidades de entrega de menor custo entre posicionamentos disponíveis. citeturn0view0</p>
+
+      <div class="mini-grid">
+        <div class="callout">
+          <h3>Comece com Advantage+ Placements quando:</h3>
+          <ul class="bullet-list muted small">
+            <li>Você quer dar espaço para a plataforma encontrar entrega mais barata.</li>
+            <li>Seu criativo se adapta bem a múltiplos placements.</li>
+            <li>Você ainda não tem diagnóstico forte para restringir manualmente.</li>
+          </ul>
+        </div>
+        <div class="callout">
+          <h3>Considere manual quando:</h3>
+          <ul class="bullet-list muted small">
+            <li>O criativo foi desenhado para um formato específico.</li>
+            <li>Você já testou e viu perda clara de qualidade em um placement.</li>
+            <li>Há restrição operacional, criativa ou analítica que precisa ser isolada.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="decision-grid" style="margin-top:18px;">
+        <div class="decision-card">
+          <h3>Feed</h3>
+          <p class="muted small">Mais espaço para leitura, texto e prova social. Bom para imagem estática, carrossel e oferta mais explicada.</p>
+        </div>
+        <div class="decision-card">
+          <h3>Stories e Reels</h3>
+          <p class="muted small">Tela cheia, ritmo rápido, gancho imediato. Pede formato vertical e mensagem que prenda nos primeiros segundos.</p>
+        </div>
+        <div class="decision-card">
+          <h3>Audience Network e outros</h3>
+          <p class="muted small">Podem gerar volume, mas nem sempre qualidade. O corte deve vir por diagnóstico, não por dogma.</p>
+        </div>
+        <div class="decision-card">
+          <h3>Pergunta correta</h3>
+          <p class="muted small">Meu criativo está legível e adequado para esse placement, ou eu estou culpando o placement por um asset mal adaptado?</p>
+        </div>
+      </div>
+
+      <div class="example-block" style="margin-top:18px;">
+        <h3>Checklist de decisão</h3>
+        <div class="steps-grid">
+          <div class="step-card">
+            <h3>1. O criativo foi feito para 9:16?</h3>
+            <p class="muted small">Se sim, Stories/Reels merecem atenção especial ou ativo separado.</p>
+          </div>
+          <div class="step-card">
+            <h3>2. Já observou clique fraco em um placement?</h3>
+            <p class="muted small">Isole o teste e verifique se a remoção melhora qualidade, não só métrica de superfície.</p>
+          </div>
+          <div class="step-card">
+            <h3>3. O anúncio perde legibilidade fora do feed?</h3>
+            <p class="muted small">Adapte o asset por placement ou limite manualmente até ter criativo correto.</p>
+          </div>
+          <div class="step-card">
+            <h3>4. Você ainda não tem diagnóstico?</h3>
+            <p class="muted small">Comece amplo, colete dados e restrinja só com motivo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="danger-box" style="margin-top:18px;">
+        Posicionamento não se escolhe por gosto. Cortar placement só porque “sempre ouvi que é ruim” é terceirizar raciocínio.
+      </div>
+    </section>
+
+    <section class="section-card card" id="naming">
+      <h2>5. Naming: o nome precisa servir para análise</h2>
+      <p>Naming ruim custa dinheiro porque atrapalha leitura, auditoria e operação. Em conta com volume, um bom nome precisa revelar rapidamente: nível da estrutura, objetivo, estágio do funil, hipótese de público, placement e versão criativa. A Apostila 2 publicada no repositório atual concentra vários exemplos de naming longos; no mobile, eles ficam mais legíveis quando tratados como blocos separados com quebra segura, não como linha corrida. citeturn1view0turn1view1</p>
+
+      <div class="naming-grid">
+        <div class="naming-card">
+          <h3>Princípios</h3>
+          <ul class="bullet-list muted small">
+            <li>Tudo em minúsculas.</li>
+            <li>Nível identificado com clareza.</li>
+            <li>Informação útil para leitura e filtro.</li>
+            <li>Versão sempre que houver iteração.</li>
+          </ul>
+        </div>
+        <div class="naming-card">
+          <h3>O que evitar</h3>
+          <ul class="bullet-list muted small">
+            <li>Nome bonito, mas sem função.</li>
+            <li>Texto gigante sem hierarquia.</li>
+            <li>Abreviação que só você entende.</li>
+            <li>Funil, público e criativo misturados sem ordem fixa.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <pre>campanha: [wd][01][vendas][topo] | broad_25_54
+conjunto: [p1][broad][auto] | 7d | vestidos
+anúncio: [a1][vid] | hook_lookbook_v1</pre>
+      </div>
+
+      <div class="decision-grid" style="margin-top:18px;">
+        <div class="decision-card">
+          <h3>[wd][01][vendas][topo]</h3>
+          <p class="muted small">Projeto, posição no funil, objetivo e estágio.</p>
+        </div>
+        <div class="decision-card">
+          <h3>broad_25_54</h3>
+          <p class="muted small">Resumo curto da hipótese de público.</p>
+        </div>
+        <div class="decision-card">
+          <h3>[p1][broad][auto]</h3>
+          <p class="muted small">Hierarquia do público, tipo de audiência e placement.</p>
+        </div>
+        <div class="decision-card">
+          <h3>7d | vestidos</h3>
+          <p class="muted small">Janela, tema, categoria ou recorte estratégico.</p>
+        </div>
+        <div class="decision-card">
+          <h3>[a1][vid]</h3>
+          <p class="muted small">Ordem do criativo e formato.</p>
+        </div>
+        <div class="decision-card">
+          <h3>hook_lookbook_v1</h3>
+          <p class="muted small">Ideia criativa e versão. Isso reduz erro operacional.</p>
+        </div>
+      </div>
+
+      <div class="example-block" style="margin-top:18px;">
+        <h3>Estrutura sugerida para o cenário desta aula</h3>
+        <div class="code-block">
+          <pre>campanha: [wd][01][vendas][topo] | colecao_fw26
+conjunto 1: [p1][broad][auto] | 25_54 | colecao
+conjunto 2: [p2][interesse_moda][auto] | 25_54 | colecao
+conjunto 3: [p3][lal_1p][auto] | 25_54 | colecao
+anúncio 1: [a1][vid] | hook_colecao_v1
+anúncio 2: [a2][img] | lookbook_v1
+anúncio 3: [a3][car] | destaques_v1</pre>
+        </div>
+        <p class="muted small">Isso presta porque existe hipótese clara por conjunto, objetivo coerente com o negócio e leitura rápida da estrutura.</p>
+      </div>
+    </section>
+
+    <section class="section-card card" id="exemplo">
+      <h2>6. Exemplo guiado: montando a lógica de uma campanha de moda</h2>
+      <p>Vamos aplicar tudo em um cenário próximo da sua rotina: uma marca de moda feminina quer vender coleção nova no site, tem pixel funcional, catálogo ativo e verba de <strong>R$ 240/dia</strong>.</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <h3>Passo 1 · Objetivo</h3>
+          <p class="muted small">Como o foco principal é compra no site e o tracking está funcional, o objetivo-base tende a ser <strong>sales</strong>.</p>
+        </div>
+        <div class="step-card">
+          <h3>Passo 2 · Estrutura</h3>
+          <p class="muted small">Separar prospecting de remarketing. Não misturar topo com carrinho abandonado.</p>
+        </div>
+        <div class="step-card">
+          <h3>Passo 3 · Orçamento</h3>
+          <p class="muted small">Se a intenção é testar 3 hipóteses frias em paralelo, começar com orçamento por conjunto pode dar leitura mais limpa.</p>
+        </div>
+        <div class="step-card">
+          <h3>Passo 4 · Posicionamentos</h3>
+          <p class="muted small">Começar com Advantage+ Placements se os criativos estiverem adaptados. Se uma peça é claramente de feed ou vertical, crie versão própria ou isole manualmente.</p>
+        </div>
+        <div class="step-card">
+          <h3>Passo 5 · Naming</h3>
+          <p class="muted small">Nomear de forma que qualquer leitura posterior revele objetivo, funil, público, placement e versão criativa.</p>
+        </div>
+        <div class="step-card">
+          <h3>Passo 6 · Evolução</h3>
+          <p class="muted small">Quando broad e lookalike provarem valor, migrar para orçamento por campanha passa a fazer sentido.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card card" id="exercicios">
+      <h2>7. Exercícios aplicados</h2>
+      <p class="muted">Faça sem consultar a resposta primeiro. O ganho real da aula acontece aqui.</p>
+      <div class="exercise-grid">
+        <div class="exercise-card">
+          <h3>Exercício 1 · Escolha do objetivo</h3>
+          <p>Uma clínica de fisioterapia domiciliar quer gerar contatos qualificados pelo WhatsApp para avaliação inicial. O site é simples, sem estrutura boa de conversão. Qual objetivo você escolheria primeiro e por quê?</p>
+          <details>
+            <summary>Ver resposta comentada</summary>
+            <p><strong>Resposta possível:</strong> <strong>leads</strong> ou <strong>engagement voltado a mensagens</strong>, dependendo do fluxo exato, porque o negócio depende de contato comercial e o site não oferece sinal forte de conversão final.</p>
+          </details>
+        </div>
+        <div class="exercise-card">
+          <h3>Exercício 2 · Orçamento</h3>
+          <p>Você tem R$ 150/dia e quer testar 3 públicos frios muito diferentes. Começaria com orçamento por campanha ou por conjunto? Justifique.</p>
+          <details>
+            <summary>Ver resposta comentada</summary>
+            <p>Na fase de teste, <strong>por conjunto</strong> costuma ser mais defensável, porque garante verba mínima para cada hipótese e evita um conjunto matar o outro cedo demais sem leitura suficiente.</p>
+          </details>
+        </div>
+        <div class="exercise-card">
+          <h3>Exercício 3 · Posicionamentos</h3>
+          <p>Seu criativo foi editado só em formato quadrado e tem muito texto pequeno. Você manteria Advantage+ Placements sem adaptação? O que faria?</p>
+          <details>
+            <summary>Ver resposta comentada</summary>
+            <p>Não manteria cegamente. Eu adaptaria o criativo para vertical ou isolaria placements onde a peça continua legível. O problema não é o placement em si; é a inadequação do asset.</p>
+          </details>
+        </div>
+        <div class="exercise-card">
+          <h3>Exercício 4 · Naming</h3>
+          <p>Crie um naming para uma campanha de leads, fundo de funil, com público de visitantes 30 dias, placement manual feed e stories, usando vídeo versão 2.</p>
+          <details>
+            <summary>Ver uma possibilidade</summary>
+            <div class="code-block">
+              <pre>[wd][03][leads][fundo] | visitantes_30d
+[p1][visitantes_30d][feed_stories] | 30d | remarketing
+[a1][vid] | oferta_v2</pre>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card card" id="quiz">
+      <h2>8. Mini quiz de fixação</h2>
+      <div class="quiz-grid">
+        <div class="quiz-card">
+          <h3>1) Qual é a pergunta central que define o objetivo de campanha?</h3>
+          <details>
+            <summary>Resposta</summary>
+            <p>“Qual resultado de negócio eu quero que a plataforma priorize?”</p>
+          </details>
+        </div>
+        <div class="quiz-card">
+          <h3>2) Quando o orçamento por campanha costuma ser mais forte?</h3>
+          <details>
+            <summary>Resposta</summary>
+            <p>Quando as hipóteses já estão razoavelmente validadas e você quer eficiência global entre conjuntos parecidos.</p>
+          </details>
+        </div>
+        <div class="quiz-card">
+          <h3>3) Qual é o erro de cortar placements sem diagnóstico?</h3>
+          <details>
+            <summary>Resposta</summary>
+            <p>Trocar análise por hábito e reduzir o espaço de entrega sem prova de que isso melhora resultado real.</p>
+          </details>
+        </div>
+        <div class="quiz-card">
+          <h3>4) O que um bom naming precisa revelar rapidamente?</h3>
+          <details>
+            <summary>Resposta</summary>
+            <p>Nível da estrutura, objetivo, estágio do funil, hipótese de público ou recorte estratégico, placement e versão criativa.</p>
+          </details>
+        </div>
+        <div class="quiz-card">
+          <h3>5) Complete a frase: orçamento não salva ________.</h3>
+          <details>
+            <summary>Resposta</summary>
+            <p><strong>Arquitetura ruim.</strong></p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card card" id="idiomas">
+      <h2>9. Microbloco diário de idioma</h2>
+      <div class="language-grid">
+        <div class="language-card">
+          <h3>Inglês aplicado ao trabalho</h3>
+          <ul class="bullet-list muted small">
+            <li><strong>campaign objective</strong> = objetivo de campanha</li>
+            <li><strong>ad set budget</strong> = orçamento por conjunto</li>
+            <li><strong>placements</strong> = posicionamentos</li>
+            <li><strong>naming convention</strong> = convenção de nomenclatura</li>
+          </ul>
+          <div class="highlight small">I choose the objective based on the business goal, not on guesswork.</div>
+          <p class="small muted">Eu escolho o objetivo com base no objetivo de negócio, não em achismo.</p>
+        </div>
+        <div class="language-card">
+          <h3>Japonês básico</h3>
+          <ul class="bullet-list muted small">
+            <li><strong>もくひょう</strong> (mokuhyou) = objetivo</li>
+            <li><strong>よさん</strong> (yosan) = orçamento</li>
+            <li><strong>こうこく</strong> (koukoku) = anúncio / publicidade</li>
+            <li><strong>なまえ</strong> (namae) = nome</li>
+          </ul>
+          <div class="highlight small">もくひょうを まちがえると、けっかも ずれる。</div>
+          <p class="small muted">Se você erra o objetivo, o resultado também se desvia.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card card" id="erros">
+      <h2>10. Caderno de erros</h2>
+      <div class="error-grid">
+        <div class="error-card">
+          <h3>Erro 1</h3>
+          <p class="muted small">Escolher objetivo pelo resultado desejado no ego, não pela estrutura real da conta.</p>
+        </div>
+        <div class="error-card">
+          <h3>Erro 2</h3>
+          <p class="muted small">Discutir CBO vs ABO quando a verba está pulverizada em estrutura ruim.</p>
+        </div>
+        <div class="error-card">
+          <h3>Erro 3</h3>
+          <p class="muted small">Cortar placements por crença, sem olhar qualidade e adaptação do criativo.</p>
+        </div>
+        <div class="error-card">
+          <h3>Erro 4</h3>
+          <p class="muted small">Usar naming genérico e depois sofrer para analisar, escalar ou auditar.</p>
+        </div>
+        <div class="error-card">
+          <h3>Erro 5</h3>
+          <p class="muted small">Copiar configuração de outra conta sem perguntar: “qual hipótese isso atende aqui?”</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card card" id="concluir">
+      <h2>11. Concluir esta apostila</h2>
+      <div class="progress-box">
+        <div>
+          <p><strong>Marque como concluída</strong> quando terminar os exercícios e o mini quiz sem consulta.</p>
+          <p class="muted small">O progresso fica salvo apenas no navegador em que você marcou.</p>
+        </div>
+        <div>
+          <button class="btn btn-primary" id="markComplete">Marcar como concluída</button>
+          <div id="status" class="progress-pill" style="margin-top:10px; display:none;">Concluída neste navegador</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="card footer-card">
+      <div>
+        <h2 style="margin-bottom:8px;">Resumo executivo</h2>
+        <p class="footer-note">Esta aula resolve quatro decisões estratégicas: o que pedir para a plataforma, como distribuir verba, onde exibir o anúncio e como nomear a estrutura. Se você dominar isso, sua conta fica mais legível, auditável e escalável.</p>
+      </div>
+      <div class="footer-actions">
+        <a class="btn btn-secondary" href="../index.html">Retornar ao cronograma</a>
+        <a class="btn btn-primary btn-disabled" href="#" aria-disabled="true">Próxima apostila</a>
+      </div>
+    </footer>
   </main>
 
-  <footer class="footer">
-    <div class="container">Apostila 2 · Meta Ads · arquivo individual para GitHub Pages</div>
-  </footer>
+  <div class="sticky-actions">
+    <a class="floating-btn" href="#top" aria-label="Voltar ao topo">↑</a>
+  </div>
 
   <script>
-    (function(){
-      const id = document.body.dataset.lessonId || 'dia-002';
-      const button = document.getElementById('markComplete');
-      const key = 'seiji-study-progress';
+    (function () {
+      const key = 'seiji.study.complete.dia-002';
+      const markButton = document.getElementById('markComplete');
+      const status = document.getElementById('status');
 
-      function getProgress(){
-        try { return JSON.parse(localStorage.getItem(key) || '{}'); }
-        catch(e){ return {}; }
-      }
-
-      function setComplete(){
-        const progress = getProgress();
-        progress[id] = true;
-        localStorage.setItem(key, JSON.stringify(progress));
-        button.textContent = 'Concluída';
-        button.disabled = true;
-      }
-
-      if(button){
-        const progress = getProgress();
-        if(progress[id]){
-          button.textContent = 'Concluída';
-          button.disabled = true;
+      function refresh() {
+        const done = localStorage.getItem(key) === 'true';
+        if (done) {
+          status.style.display = 'inline-flex';
+          markButton.textContent = 'Concluída';
+          markButton.setAttribute('aria-pressed', 'true');
+        } else {
+          status.style.display = 'none';
+          markButton.textContent = 'Marcar como concluída';
+          markButton.setAttribute('aria-pressed', 'false');
         }
-        button.addEventListener('click', setComplete);
       }
+
+      markButton.addEventListener('click', function () {
+        localStorage.setItem(key, 'true');
+        refresh();
+      });
+
+      refresh();
     })();
   </script>
 </body>
