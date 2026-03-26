@@ -4,20 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cronograma de Estudos · Seiji</title>
-  <meta name="description" content="Cronograma de estudos de Onohara Seiji com progresso, semanas e links diretos para as apostilas." />
+  <meta name="description" content="Cronograma de estudos de Onohara Seiji com progresso, semanas e detecção automática das apostilas publicadas no GitHub." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-row">
-      <a class="brand" href="index.html">seiji.study</a>
-      <nav class="site-nav">
-        <a href="#cronograma">Cronograma</a>
-        <a href="#metodologia">Metodologia</a>
-        <a href="#progresso">Progresso</a>
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <span class="brand-badge">S</span>
+        <span>seiji.study</span>
+      </a>
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a class="nav-link active" href="#cronograma">Cronograma</a>
+        <a class="nav-link" href="#metodologia">Metodologia</a>
+        <a class="nav-link" href="#progresso">Progresso</a>
       </nav>
     </div>
   </header>
@@ -25,30 +28,33 @@
   <main>
     <section class="hero">
       <div class="container hero-grid">
-        <div>
-          <p class="eyebrow">Projeto de estudo · 12 semanas · GitHub Pages</p>
+        <article class="card hero-card">
+          <span class="eyebrow">Projeto de estudo · 12 semanas · GitHub Pages</span>
           <h1>Cronograma de estudos para Onohara Seiji</h1>
-          <p class="hero-text">
+          <p class="lead">
             Plano estruturado para 60 a 90 minutos por dia, com conteúdo novo de segunda a quinta,
-            revisão na sexta e teste prático no sábado. O foco central está em Meta Ads, Google Ads,
+            revisão na sexta e teste prático no sábado. O cronograma cobre Meta Ads, Google Ads,
             traqueamento, n8n, CRM, prospecção ativa, vendas, inglês e japonês.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#cronograma">Ver cronograma completo</a>
-            <a class="btn btn-secondary" href="apostilas/dia-001.html">Abrir a primeira apostila</a>
+            <a class="btn btn-secondary" id="first-lesson-link" href="apostilas/dia-001.html">Abrir primeira apostila publicada</a>
           </div>
-        </div>
+          <p id="availability-note" class="note" style="margin-top:16px">
+            Verificando quais apostilas já estão publicadas no repositório...
+          </p>
+        </article>
 
         <aside class="card profile-card">
           <h2>Perfil do plano</h2>
-          <ul class="profile-list">
-            <li><strong>Nome</strong><span>Onohara Seiji</span></li>
-            <li><strong>Idade</strong><span>39 anos</span></li>
-            <li><strong>Profissão</strong><span>Gestor de tráfego pago</span></li>
-            <li><strong>Rotina</strong><span>Seg a sáb</span></li>
-            <li><strong>Bloco diário</strong><span>60 a 90 min</span></li>
-            <li><strong>Idiomas</strong><span>Inglês + japonês</span></li>
-          </ul>
+          <div class="profile-grid">
+            <div class="info-pill"><small>Nome</small><strong>Onohara Seiji</strong></div>
+            <div class="info-pill"><small>Profissão</small><strong>Gestor de tráfego pago</strong></div>
+            <div class="info-pill"><small>Rotina</small><strong>Seg a sáb</strong></div>
+            <div class="info-pill"><small>Bloco diário</small><strong>60 a 90 min</strong></div>
+            <div class="info-pill"><small>Idiomas</small><strong>Inglês + japonês</strong></div>
+            <div class="info-pill"><small>Modo de publicação</small><strong>Detecção automática</strong></div>
+          </div>
         </aside>
       </div>
     </section>
@@ -59,7 +65,8 @@
           <div>
             <h2>Metodologia das apostilas</h2>
             <p class="section-lead">
-              Cada apostila deve priorizar retenção, recuperação ativa, aplicação prática e revisão contínua.
+              Cada apostila foi pensada para ensinar de verdade: revisão espaçada, recuperação ativa,
+              exemplo guiado, exercício aplicado e caderno de erros.
             </p>
           </div>
         </div>
@@ -67,30 +74,33 @@
         <div class="methods-grid">
           <article class="card method-card">
             <h3>Revisão espaçada</h3>
-            <p>Toda aula começa recuperando o conteúdo anterior antes de entrar no novo tema.</p>
+            <p>Toda aula nova puxa da memória a aula anterior antes de introduzir conteúdo novo.</p>
           </article>
           <article class="card method-card">
             <h3>Recuperação ativa</h3>
-            <p>As perguntas vêm antes da resposta. O cérebro trabalha para lembrar, não só para reler.</p>
+            <p>As perguntas aparecem antes da resposta para evitar leitura passiva e falsa sensação de domínio.</p>
           </article>
           <article class="card method-card">
             <h3>Exemplo guiado + prática</h3>
-            <p>Você entende o conceito, vê uma aplicação e depois executa no seu contexto real.</p>
+            <p>Você entende o conceito, acompanha um raciocínio completo e depois executa no seu contexto.</p>
           </article>
           <article class="card method-card">
-            <h3>Intercalação</h3>
-            <p>O cronograma alterna mídia, tracking, automação e comercial para evitar estudo passivo e estreito.</p>
+            <h3>Aplicação incremental</h3>
+            <p>O cronograma aceita novas apostilas sem refazer a estrutura: basta publicar o novo arquivo em <code>apostilas/</code>.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="progresso" class="section alt-section">
+    <section id="progresso" class="section">
       <div class="container">
         <div class="section-head">
           <div>
             <h2>Painel de progresso</h2>
-            <p class="section-lead">Marque cada apostila como concluída para acompanhar seu avanço ao longo das 12 semanas.</p>
+            <p class="section-lead">
+              O progresso considera só as apostilas já publicadas. Conforme você subir novos arquivos,
+              o cronograma passa a reconhecê-los automaticamente.
+            </p>
           </div>
         </div>
         <div id="stats-mount" class="stats-grid"></div>
@@ -102,7 +112,10 @@
         <div class="section-head">
           <div>
             <h2>Cronograma completo</h2>
-            <p class="section-lead">Cada semana traz quatro dias de conteúdo, uma revisão e um teste prático. Clique em qualquer dia para abrir a apostila correspondente.</p>
+            <p class="section-lead">
+              O plano completo continua visível, mas apenas as aulas já publicadas aparecem com botão de abertura.
+              As demais ficam marcadas como <strong>em breve</strong> até o upload do arquivo correspondente.
+            </p>
           </div>
         </div>
         <div id="weeks-mount" class="weeks-grid"></div>
@@ -113,35 +126,43 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>Observações de uso</h2>
-            <p class="section-lead">Esta estrutura foi pensada para funcionar direto no GitHub Pages, sem depender de build ou instalação adicional.</p>
+            <h2>Como o sistema funciona agora</h2>
+            <p class="section-lead">
+              Esta base foi ajustada para evitar 404 e manter o projeto simples de operar.
+            </p>
           </div>
         </div>
         <div class="resources-grid">
           <article class="card resource-card">
-            <h3>Como usar</h3>
-            <p>Suba a pasta inteira para o repositório, habilite o GitHub Pages e abra o index. O progresso fica salvo localmente no navegador.</p>
+            <h3>Sem mexer no cronograma</h3>
+            <p>Você publica uma nova apostila em <code>apostilas/dia-004.html</code>, <code>apostilas/dia-005.html</code> e assim por diante. O cronograma detecta o arquivo automaticamente.</p>
           </article>
           <article class="card resource-card">
-            <h3>Como expandir</h3>
-            <p>Crie ou substitua apenas os arquivos das apostilas dentro de <code>apostilas/</code>, mantendo o padrão <code>dia-001.html</code>, <code>dia-002.html</code> e assim por diante.</p>
+            <h3>Sem gerar 404 no restante</h3>
+            <p>As aulas que ainda não existem continuam visíveis no plano, mas ficam desabilitadas até o upload correspondente.</p>
           </article>
           <article class="card resource-card">
-            <h3>Próximo passo recomendado</h3>
-            <p>Preencher as apostilas uma a uma com conteúdo profundo, exemplos, exercícios e prática aplicada.</p>
+            <h3>Compatível com o que já existe</h3>
+            <p>As três apostilas atuais continuam funcionando, e o progresso foi unificado para conversar com o cronograma.</p>
           </article>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-row">
-      <p>Projeto de estudo de Seiji · Estrutura pronta para GitHub Pages</p>
-      <a href="apostilas/dia-001.html">Abrir a primeira apostila</a>
+  <footer class="footer">
+    <div class="container">
+      Base ajustada para GitHub Pages, com detecção automática das apostilas publicadas na pasta <code>apostilas/</code>.
     </div>
   </footer>
 
+  <script>
+    window.SEIJI_REPO_CONFIG = {
+      owner: "OnoharaSeiji",
+      repo: "seiji",
+      lessonsDir: "apostilas"
+    };
+  </script>
   <script src="assets/js/study-data.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
