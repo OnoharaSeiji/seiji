@@ -3,16 +3,189 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Apostila</title>
-  <meta name="description" content="Apostila dinâmica do cronograma de estudos Seiji.">
+  <title>Dia 001 · Estrutura de campanha, funil e públicos | Seiji</title>
+  <meta name="description" content="Apostila 1 do projeto Seiji em formato profissional: estrutura de campanha, funil e públicos em Meta Ads.">
   <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .lesson-shell{padding:34px 0 70px}
+    .lesson-hero{padding:34px}
+    .lesson-hero h1{margin:14px 0 10px;font-size:clamp(2rem,4vw,3rem);line-height:1.05;letter-spacing:-.03em}
+    .lesson-hero p{margin:0;color:var(--ink-soft);line-height:1.78;max-width:920px}
+    .lesson-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .lesson-pill{display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;background:#f8fafc;border:1px solid var(--line);font-size:.82rem;font-weight:800;color:var(--ink-soft)}
+    .lesson-body{display:grid;gap:18px;margin-top:22px}
+    .lesson-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:var(--shadow-soft)}
+    .lesson-card h2{margin:0 0 12px;font-size:1.35rem;letter-spacing:-.02em}
+    .lesson-card h3{margin:18px 0 8px;font-size:1rem}
+    .lesson-card p{margin:0 0 12px;line-height:1.78;color:var(--ink-soft)}
+    .lesson-card ul,.lesson-card ol{margin:10px 0 0 20px;padding:0}
+    .lesson-card li{margin:10px 0;line-height:1.7;color:var(--ink)}
+    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .note{padding:14px 16px;border-radius:16px;margin:12px 0;font-size:.95rem;line-height:1.7}
+    .note.blue{background:#eff6ff;border:1px solid #bfdbfe;color:#1e3a8a}
+    .note.green{background:#f0fdf4;border:1px solid #bbf7d0;color:#166534}
+    .note.amber{background:#fffbeb;border:1px solid #fde68a;color:#92400e}
+    .table-wrap{overflow:auto;margin-top:10px}
+    table{width:100%;border-collapse:collapse;font-size:.95rem}
+    th,td{padding:12px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+    th{font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-faint)}
+    .checklist li{list-style:none;position:relative;padding-left:28px}
+    .checklist li::before{content:"•";position:absolute;left:8px;top:0;color:var(--blue);font-weight:900}
+    .nav-bottom{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:24px}
+    .nav-bottom a{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;font-weight:800}
+    .btn-back{background:#e5e7eb;color:#111827}
+    .btn-next{background:#cbd5e1;color:#475569;pointer-events:none}
+    @media(max-width:780px){.grid-2{grid-template-columns:1fr}.lesson-hero,.lesson-card{padding:20px}.nav-bottom{flex-direction:column}.nav-bottom a{width:100%}}
+  </style>
 </head>
 <body>
-  <noscript>
-    <main class="container" style="padding:40px 0;color:#0f172a">Esta apostila precisa de JavaScript habilitado para carregar o conteúdo.</main>
-  </noscript>
-  <script src="../assets/js/study-data.js"></script>
-  <script src="../assets/js/study-data-overrides.js"></script>
-  <script src="../assets/js/lesson-runtime.js"></script>
+  <main class="lesson-shell">
+    <div class="container">
+      <section class="card lesson-hero">
+        <span class="eyebrow">meta ads · semana 1 · dia 1</span>
+        <h1>Estrutura de campanha, funil e públicos</h1>
+        <p>O objetivo desta aula não é decorar nomenclatura. É aprender a organizar uma conta de mídia de forma que a estrutura ajude sua análise, sua tomada de decisão e sua capacidade de escalar sem perder clareza.</p>
+        <div class="lesson-meta">
+          <span class="lesson-pill">Tema: Meta Ads</span>
+          <span class="lesson-pill">Foco: estrutura com intenção</span>
+          <span class="lesson-pill">Nível: profissional</span>
+          <span class="lesson-pill">Aplicação: e-commerce e geração de demanda</span>
+        </div>
+      </section>
+
+      <section class="lesson-body">
+        <article class="lesson-card">
+          <h2>1. Premissa central</h2>
+          <p>Estrutura boa não é a mais complexa. Estrutura boa é a que responde três perguntas com rapidez: o que estou tentando fazer, com quem estou falando e onde está o gargalo quando o resultado piora.</p>
+          <div class="note blue"><strong>Regra prática:</strong> sempre que a estrutura atrapalha a leitura, ela deixou de ser solução e virou ruído operacional.</div>
+          <p>Em Meta Ads, muita conta performa abaixo do potencial não porque falta criativo ou verba, mas porque mistura intenção diferente dentro da mesma arquitetura. Quando isso acontece, a leitura fica confusa: o CPA sobe e você não sabe se o problema é público, criativo, oferta, estágio do funil ou simplesmente uma estrutura mal pensada.</p>
+        </article>
+
+        <article class="lesson-card">
+          <h2>2. Os três níveis que você precisa distinguir</h2>
+          <div class="grid-2">
+            <div class="note green"><strong>Campanha</strong><br>Define o objetivo macro e o tipo de resultado que você quer sinalizar ao sistema.</div>
+            <div class="note green"><strong>Conjunto</strong><br>Controla público, posicionamento, verba em alguns casos e parte importante da lógica de entrega.</div>
+            <div class="note green"><strong>Anúncio</strong><br>Carrega a mensagem, o criativo, o ângulo e a forma como a oferta chega à pessoa.</div>
+            <div class="note amber"><strong>Erro comum</strong><br>Querer corrigir na camada do anúncio um problema que nasceu na camada de público ou de objetivo.</div>
+          </div>
+          <p>Na prática, pensar nesses três níveis evita diagnósticos rasos. Se a campanha está errada, o algoritmo pode buscar o tipo errado de resultado. Se o conjunto está errado, você fala com a pessoa errada. Se o anúncio está errado, até o público certo rejeita a mensagem.</p>
+        </article>
+
+        <article class="lesson-card">
+          <h2>3. Funil: topo, meio e fundo sem confusão</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Etapa</th>
+                  <th>Quem é essa pessoa</th>
+                  <th>Objetivo principal</th>
+                  <th>Expectativa correta</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Topo</td>
+                  <td>Não conhece a marca ou conhece muito pouco</td>
+                  <td>Gerar atenção qualificada e entrada no sistema</td>
+                  <td>CPA tende a ser mais instável; foco em atrair público certo</td>
+                </tr>
+                <tr>
+                  <td>Meio</td>
+                  <td>Já interagiu com marca, conteúdo, site ou produto</td>
+                  <td>Reforçar intenção e reduzir fricção</td>
+                  <td>Mensagem precisa ser mais específica e mais próxima da oferta</td>
+                </tr>
+                <tr>
+                  <td>Fundo</td>
+                  <td>Está muito perto de comprar ou já demonstrou forte sinal</td>
+                  <td>Converter com mínima fricção possível</td>
+                  <td>O gargalo costuma estar em oferta, página, urgência ou confiança</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note amber"><strong>Ponto crítico:</strong> fundo de funil não significa qualquer pessoa que já viu algo da marca. Fundo é proximidade real de decisão.</div>
+        </article>
+
+        <article class="lesson-card">
+          <h2>4. Públicos: frio, morno e quente</h2>
+          <p><strong>Público frio</strong> é audiência nova, sem relacionamento relevante. Aqui o papel do criativo é abrir atenção e gerar entrada qualificada.</p>
+          <p><strong>Público morno</strong> já teve contato com a marca. Visitou site, engajou conteúdo, viu vídeo, navegou categorias ou demonstrou algum interesse intermediário.</p>
+          <p><strong>Público quente</strong> está perto da compra. Entram aqui sinais como add to cart, initiate checkout, view content de produto muito recente ou comportamento equivalente de alta intenção.</p>
+          <div class="note blue"><strong>Leitura madura:</strong> nem todo público engajado é quente. Muitas vezes ele é apenas morno e precisa de mais prova, mais repetição certa ou mais clareza de oferta.</div>
+        </article>
+
+        <article class="lesson-card">
+          <h2>5. Como estruturar sem exagerar</h2>
+          <p>Uma estrutura profissional parte da realidade da operação. Conta pequena com verba limitada não precisa de arquitetura inchada. Conta maior, com volume e necessidade de leitura mais refinada, pode justificar mais segmentação.</p>
+          <h3>Estrutura base enxuta para e-commerce</h3>
+          <ul>
+            <li>Aquisição: públicos frios, criativos de descoberta, foco em entrada qualificada.</li>
+            <li>Remarketing: visitantes, engajados e interessados recentes, com criativos mais objetivos.</li>
+            <li>Recorrência ou recompra: clientes ou compradores com lógica própria de retenção.</li>
+          </ul>
+          <div class="note green"><strong>Boa prática:</strong> cada camada precisa existir porque melhora decisão, não porque parece mais profissional no papel.</div>
+        </article>
+
+        <article class="lesson-card">
+          <h2>6. Erros que destroem clareza</h2>
+          <ul class="checklist">
+            <li>Misturar público frio e remarketing no mesmo conjunto.</li>
+            <li>Usar a mesma mensagem para quem nunca ouviu falar da marca e para quem já abandonou carrinho.</li>
+            <li>Complexificar a estrutura além do volume de verba disponível.</li>
+            <li>Julgar criativo sem considerar se ele estava sendo entregue para o público certo.</li>
+            <li>Trocar muitas variáveis ao mesmo tempo e perder a possibilidade de diagnóstico.</li>
+          </ul>
+        </article>
+
+        <article class="lesson-card">
+          <h2>7. Exemplo aplicado ao seu contexto</h2>
+          <p>Imagine uma marca de moda feminina com verba limitada e necessidade de vender no curto prazo.</p>
+          <ol>
+            <li><strong>Aquisição:</strong> campanha focada em trazer novas pessoas com criativos fortes de produto, coleção ou benefício.</li>
+            <li><strong>Remarketing:</strong> campanha separada para visitantes do site, engajados e pessoas que visualizaram produtos.</li>
+            <li><strong>Fundo:</strong> grupo altamente qualificado com quem adicionou ao carrinho ou iniciou checkout, usando oferta, urgência ou redução de fricção.</li>
+          </ol>
+          <p>Se tudo isso estiver misturado na mesma campanha ou no mesmo conjunto, o seu relatório deixa de explicar a realidade. Você até vê números, mas para de entender o que eles significam.</p>
+        </article>
+
+        <article class="lesson-card">
+          <h2>8. Tarefa prática do dia</h2>
+          <div class="note amber"><strong>Entrega obrigatória:</strong> desenhe no papel ou em documento a estrutura ideal para um e-commerce real seu com três camadas: aquisição, remarketing e recompra.</div>
+          <p>Para cada camada, responda:</p>
+          <ul>
+            <li>qual é o objetivo principal</li>
+            <li>qual é o público</li>
+            <li>qual tipo de criativo faz mais sentido</li>
+            <li>qual métrica mais importa primeiro</li>
+            <li>o que faria você pausar, ajustar ou escalar</li>
+          </ul>
+        </article>
+
+        <article class="lesson-card">
+          <h2>9. Perguntas de revisão</h2>
+          <ol>
+            <li>Explique com suas palavras a diferença entre campanha, conjunto e anúncio.</li>
+            <li>Quando um público de engajamento faz sentido e quando ele ainda não é fundo de funil?</li>
+            <li>Qual é o risco de misturar intenções diferentes na mesma estrutura?</li>
+            <li>Como decidir se sua estrutura está simples o suficiente ou simplificada demais?</li>
+          </ol>
+        </article>
+
+        <article class="lesson-card">
+          <h2>10. Fechamento</h2>
+          <p>O aprendizado central deste dia é simples e poderoso: estrutura não existe para organizar visualmente o gerenciador. Ela existe para melhorar decisão.</p>
+          <p>Quando você entende isso, deixa de montar conta como quem preenche campos e começa a montar conta como quem constrói um sistema de leitura, teste e escala.</p>
+        </article>
+      </section>
+
+      <div class="nav-bottom">
+        <a class="btn-back" href="../index.html">← Voltar ao cronograma</a>
+        <a class="btn-next" href="#">Próxima apostila em construção</a>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
