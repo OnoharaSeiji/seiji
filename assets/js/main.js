@@ -2,7 +2,7 @@
   const plan = window.studyPlan;
   if (!plan || !Array.isArray(plan.lessons)) return;
 
-  const START_DATE = new Date(2026, 2, 23); // 23/03/2026
+  const START_DATE = new Date(2026, 2, 23);
   const weekdays = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
 
   function lessonDate(index) {
@@ -54,6 +54,15 @@
     if (!monthOrder.includes(key)) monthOrder.push(key);
   });
 
+  function readProgress(id) {
+    try {
+      const state = JSON.parse(localStorage.getItem("seiji_study_progress_v1") || "{}");
+      return !!state[id];
+    } catch {
+      return false;
+    }
+  }
+
   function renderMonth(key) {
     const [year, month] = key.split("-").map(Number);
     const firstDay = new Date(year, month - 1, 1);
@@ -73,12 +82,16 @@
       const lesson = lessonMap.get(keyDate);
 
       if (lesson) {
+        const completed = readProgress(lesson.id);
         cells += `
-          <a class="day-cell has-lesson" href="${lesson.file}">
-            <div class="day-num"><span>${day}</span><span class="lesson-tag">Apostila ${String(lesson.index + 1).padStart(3, "0")}</span></div>
+          <a class="day-cell has-lesson ${completed ? "done" : ""}" href="${lesson.file}">
+            <div class="day-num">
+              <span>${day}</span>
+              <span class="lesson-tag">${completed ? "concluída" : `apostila ${String(lesson.index + 1).padStart(3, "0")}`}</span>
+            </div>
             <strong class="lesson-title">${escapeHtml(lesson.title)}</strong>
-            <div class="lesson-meta">Semana ${lesson.week} · Dia ${lesson.dayNumber}<br>${escapeHtml(lesson.subject)}</div>
-            <span class="lesson-open">Abrir apostila →</span>
+            <div class="lesson-meta">Semana ${lesson.week} · ${escapeHtml(lesson.subject)}<br>${escapeHtml(lesson.type)}</div>
+            <span class="lesson-open">Abrir material</span>
           </a>
         `;
       } else {
@@ -95,9 +108,9 @@
     card.innerHTML = `
       <header class="month-head">
         <div>
-          <span class="month-badge">📅 ${formatMonth(firstDay)}</span>
+          <span class="month-badge">${formatMonth(firstDay)}</span>
           <h2>${formatMonth(firstDay)}</h2>
-          <p>Calendário real com as apostilas ligadas ao seu dia correspondente.</p>
+          <p>Distribuição real das apostilas no calendário, de segunda a sábado.</p>
         </div>
       </header>
       <div class="weekday-row">${weekdays.map((name) => `<div class="weekday">${name}</div>`).join("")}</div>
@@ -115,9 +128,10 @@
     const legend = document.createElement("div");
     legend.className = "legend";
     legend.innerHTML = `
-      <span class="legend-item"><span class="dot"></span> Dia com apostila</span>
+      <span class="legend-item"><span class="dot"></span> Dia com material</span>
+      <span class="legend-item"><span class="dot done"></span> Material concluído</span>
       <span class="legend-item"><span class="dot sunday"></span> Domingo sem estudo</span>
-      <span class="legend-item"><span class="dot empty"></span> Dia sem apostila</span>
+      <span class="legend-item"><span class="dot empty"></span> Sem apostila</span>
     `;
     mount.appendChild(legend);
   }

@@ -3,41 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cronograma em Calendário · Seiji</title>
-  <meta name="description" content="Calendário literal do projeto Seiji com as apostilas posicionadas nas datas reais a partir de 23 de março de 2026." />
+  <title>Cronograma de estudos · Seiji</title>
+  <meta name="description" content="Calendário do projeto Seiji com as apostilas distribuídas nas datas reais a partir de 23 de março de 2026." />
   <link rel="stylesheet" href="assets/css/style.css" />
   <style>
     .calendar-shell{padding:34px 0 70px}
-    .hero-card{padding:28px;position:relative;overflow:hidden}
-    .hero-card::after{content:'';position:absolute;width:340px;height:340px;border-radius:50%;right:-110px;top:-140px;background:radial-gradient(circle, rgba(79,124,255,.14), transparent 70%)}
-    .hero-card h1{margin:14px 0 10px;font-size:clamp(2.4rem,5vw,4rem);font-family:'Fredoka',cursive;line-height:1.04;letter-spacing:-.03em}
-    .hero-card p{margin:0;color:var(--muted);line-height:1.82;max-width:920px}
-    .hero-note{margin-top:18px;padding:16px 18px;border-radius:18px;background:linear-gradient(135deg, rgba(79,124,255,.10), rgba(55,183,165,.08));border:1px solid rgba(79,124,255,.16);font-weight:800;color:#4e6787}
+    .hero-card{padding:34px;position:relative;overflow:hidden}
+    .hero-card h1{margin:16px 0 12px;font-size:clamp(2rem,4vw,3.3rem);line-height:1.05;letter-spacing:-.03em}
+    .hero-card p{margin:0;color:var(--ink-soft);line-height:1.78;max-width:920px}
+    .hero-note{margin-top:18px;padding:16px 18px;border-radius:18px;background:#f8fafc;border:1px solid #dbeafe;font-weight:700;color:#334155}
     .months{display:grid;gap:22px;margin-top:24px}
     .month-card{padding:22px}
     .month-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap}
-    .month-head h2{margin:8px 0 4px;font-family:'Fredoka',cursive;font-size:clamp(1.6rem,2.5vw,2.3rem)}
-    .month-head p{margin:0;color:var(--muted);font-weight:700}
-    .month-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(79,124,255,.10);border:1px solid rgba(79,124,255,.14);color:#4f6788;font-weight:900;font-size:.85rem}
+    .month-head h2{margin:8px 0 4px;font-size:clamp(1.4rem,2.3vw,2rem);letter-spacing:-.02em}
+    .month-head p{margin:0;color:var(--ink-faint);font-weight:700}
+    .month-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#eff6ff;border:1px solid #bfdbfe;color:#1e3a8a;font-weight:800;font-size:.82rem;text-transform:capitalize}
     .weekday-row{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;margin-bottom:10px}
-    .weekday{padding:10px 8px;text-align:center;border-radius:12px;background:rgba(79,124,255,.08);color:#59708f;font-size:.82rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase}
+    .weekday{padding:10px 8px;text-align:center;border-radius:12px;background:#f1f5f9;color:#475569;font-size:.8rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
     .month-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px}
-    .day-cell{min-height:132px;border-radius:20px;padding:12px;position:relative;overflow:hidden;border:1px solid var(--line);background:rgba(255,255,255,.58)}
-    .day-cell.empty{background:rgba(255,255,255,.28);border-style:dashed;opacity:.48}
-    .day-cell.sunday{background:rgba(240,244,249,.7)}
-    .day-cell.has-lesson{background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(255,249,238,.95));box-shadow:0 10px 20px rgba(24,49,79,.06);transition:.18s ease}
-    .day-cell.has-lesson:hover{transform:translateY(-3px);border-color:rgba(79,124,255,.24);box-shadow:0 16px 28px rgba(24,49,79,.10)}
-    .day-num{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;font-weight:900;color:#516885}
-    .day-num span{font-size:1.05rem;font-family:'Fredoka',cursive}
-    .lesson-tag{padding:4px 8px;border-radius:999px;background:rgba(79,124,255,.10);border:1px solid rgba(79,124,255,.14);font-size:.72rem;font-weight:900;color:#5b7291}
-    .lesson-title{display:block;font-size:.96rem;line-height:1.35;font-weight:900;margin-bottom:8px;color:var(--ink)}
-    .lesson-meta{font-size:.8rem;color:var(--muted);font-weight:800;line-height:1.45}
-    .lesson-open{display:inline-flex;align-items:center;gap:8px;margin-top:10px;color:var(--blue);font-size:.84rem;font-weight:900}
+    .day-cell{min-height:132px;border-radius:18px;padding:12px;position:relative;overflow:hidden;border:1px solid var(--line);background:rgba(255,255,255,.72)}
+    .day-cell.empty{background:rgba(255,255,255,.38);border-style:dashed;opacity:.54}
+    .day-cell.sunday{background:#f8fafc}
+    .day-cell.has-lesson{background:#fff;box-shadow:var(--shadow-soft);transition:.18s ease}
+    .day-cell.has-lesson:hover{transform:translateY(-2px);border-color:rgba(37,99,235,.22);box-shadow:0 14px 28px rgba(15,23,42,.08)}
+    .day-cell.has-lesson.done{border-color:#86efac;background:#f0fdf4}
+    .day-num{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;font-weight:800;color:#475569}
+    .day-num span:first-child{font-size:1rem}
+    .lesson-tag{padding:4px 8px;border-radius:999px;background:#eff6ff;border:1px solid #dbeafe;font-size:.7rem;font-weight:800;color:#1e3a8a;text-transform:lowercase}
+    .day-cell.has-lesson.done .lesson-tag{background:#dcfce7;border-color:#bbf7d0;color:#166534}
+    .lesson-title{display:block;font-size:.94rem;line-height:1.35;font-weight:800;margin-bottom:8px;color:var(--ink)}
+    .lesson-meta{font-size:.78rem;color:var(--ink-faint);font-weight:700;line-height:1.45}
+    .lesson-open{display:inline-flex;align-items:center;gap:8px;margin-top:10px;color:var(--blue);font-size:.82rem;font-weight:800}
     .legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-    .legend-item{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:.82rem;font-weight:900;color:#617792}
-    .dot{width:10px;height:10px;border-radius:999px;background:rgba(79,124,255,.40)}
-    .dot.sunday{background:rgba(148,163,184,.5)}
-    .dot.empty{background:rgba(203,213,225,.8)}
+    .legend-item{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:.8rem;font-weight:800;color:#475569}
+    .dot{width:10px;height:10px;border-radius:999px;background:#93c5fd}
+    .dot.done{background:#22c55e}
+    .dot.sunday{background:#94a3b8}
+    .dot.empty{background:#cbd5e1}
     @media (max-width:980px){.weekday-row,.month-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
     @media (max-width:680px){.weekday-row,.month-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.day-cell{min-height:120px}}
   </style>
@@ -46,15 +48,15 @@
   <main class="calendar-shell">
     <div class="container">
       <section class="card hero-card">
-        <span class="eyebrow">Cronograma literal · início em 23/03/2026 · segunda a sábado</span>
-        <h1>Cronograma em calendário</h1>
-        <p>As apostilas agora aparecem em um calendário real, com datas correspondentes ao estudo. A <strong>apostila 1</strong> começa em <strong>segunda-feira, 23 de março de 2026</strong>, e o cronograma segue de <strong>segunda a sábado</strong> até a última apostila.</p>
-        <div class="hero-note">Este calendário posiciona cada apostila em seu dia real. Domingos ficam vazios para manter a lógica original do cronograma de 6 estudos por semana.</div>
+        <span class="eyebrow">cronograma real · início em 23/03/2026 · segunda a sábado</span>
+        <h1>Cronograma de estudos</h1>
+        <p>Este calendário posiciona cada apostila na sua data real de estudo. A proposta aqui é simples: visão clara do plano, acesso rápido ao material e leitura objetiva da sequência de evolução ao longo das 12 semanas.</p>
+        <div class="hero-note">A intenção não é gamificar o estudo. É dar visibilidade ao percurso, reduzir fricção operacional e manter foco no que precisa ser aprendido e aplicado.</div>
       </section>
-      <section id="calendar-mount" class="months" aria-label="Calendário literal das apostilas"></section>
+      <section id="calendar-mount" class="months" aria-label="Calendário das apostilas"></section>
     </div>
   </main>
-  <footer class="footer"><div class="container">Calendário literal do projeto Seiji com 72 apostilas distribuídas de 23/03/2026 a 13/06/2026.</div></footer>
+  <footer class="footer"><div class="container">Projeto Seiji · 72 apostilas planejadas entre 23/03/2026 e 13/06/2026.</div></footer>
   <script src="assets/js/study-data.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
